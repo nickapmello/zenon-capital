@@ -265,16 +265,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* --- Form Submit --- */
+  /* --- Phone Input Mask --- */
+  const phoneInput = document.getElementById('phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+      let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+      e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+    });
+  }
+
+  /* --- Form Submit & Loading --- */
   const form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = form.querySelector('button[type="submit"] span');
-      const originalText = btn.textContent;
-      btn.textContent = 'Mensagem enviada';
-      gsap.fromTo(form.querySelector('button'), { scale: 0.98 }, { scale: 1, duration: 0.3, ease: 'elastic.out(1,0.5)' });
-      setTimeout(() => { btn.textContent = originalText; form.reset(); }, 3000);
+      
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const btnText = submitBtn.querySelector('span');
+      const formFields = form.querySelectorAll('input, textarea');
+      
+      submitBtn.disabled = true;
+      submitBtn.classList.add('btn-loading');
+      formFields.forEach(field => field.disabled = true);
+      
+      const originalText = btnText.textContent;
+      btnText.textContent = 'Enviando...';
+
+      setTimeout(() => {
+        submitBtn.classList.remove('btn-loading');
+        btnText.textContent = 'Mensagem enviada';
+        gsap.fromTo(submitBtn, { scale: 0.98 }, { scale: 1, duration: 0.3, ease: 'elastic.out(1,0.5)' });
+        
+        form.reset();
+
+        setTimeout(() => {
+          btnText.textContent = originalText;
+          formFields.forEach(field => field.disabled = false);
+          submitBtn.disabled = false;
+        }, 2000);
+      }, 2000);
     });
   }
 
