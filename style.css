@@ -383,14 +383,52 @@ input,textarea { font-family:inherit; }
    SOLUTIONS PJ — Horizontal Scroll
    ============================ */
 #solutions-pj { padding: var(--section-py) 0; overflow:hidden; }
-.hscroll-wrapper { overflow:visible; padding: 0 clamp(1.5rem,4vw,3rem); }
+.hscroll-controls {
+  display:flex;
+  justify-content:flex-end;
+  gap:0.75rem;
+  margin:-1rem 0 1rem;
+}
+.hscroll-btn {
+  width:42px;
+  height:42px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text-primary);
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border-subtle);
+  border-radius:50%;
+  cursor:pointer;
+  transition:all 0.3s var(--ease);
+}
+.hscroll-btn:hover {
+  color:var(--gold);
+  border-color:var(--border-accent);
+  background:rgba(200,169,126,0.08);
+}
+.hscroll-btn:disabled {
+  opacity:0.35;
+  cursor:default;
+  pointer-events:none;
+}
+.hscroll-wrapper {
+  overflow-x:auto;
+  scrollbar-width:none;
+  scroll-snap-type:x mandatory;
+  overscroll-behavior-x:contain;
+}
+.hscroll-wrapper::-webkit-scrollbar { display:none; }
 .hscroll-track {
   display:flex; gap:1.5rem;
+  width:100%;
+  min-width:100%;
   will-change:transform;
 }
 .hscroll-card {
-  flex-shrink:0;
-  width: clamp(300px,30vw,420px);
+  flex:0 0 calc((100% - 4.5rem) / 4);
+  min-width:280px;
+  scroll-snap-align:start;
   padding: clamp(2rem,3vw,2.5rem);
   --radius:16px;
   transition: all 0.4s var(--ease);
@@ -529,6 +567,9 @@ input,textarea { font-family:inherit; }
   .bento-grid { grid-template-columns:1fr 1fr; }
   .bento-large { grid-row:auto; grid-column:span 2; }
   .contact-grid { grid-template-columns:1fr; }
+  .hscroll-card {
+    flex:0 0 clamp(280px,42vw,340px);
+  }
 }
 @media(max-width:768px) {
   .nav-links, .nav-cta { display:none; }
@@ -542,8 +583,12 @@ input,textarea { font-family:inherit; }
   .stack-card { position:relative; top:auto !important; }
   .form-row { grid-template-columns:1fr; }
   .footer-top { flex-direction:column; }
+  .hscroll-controls { margin-top:-0.5rem; }
   .hscroll-track { gap:1rem; }
-  .hscroll-card { width:85vw; }
+  .hscroll-card {
+    flex-basis:min(85vw,340px);
+    min-width:min(85vw,340px);
+  }
 }
 
 /* ============================

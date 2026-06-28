@@ -146,22 +146,36 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Horizontal Scroll PJ --- */
   const hscrollTrack = document.getElementById('hscroll-track');
   const hscrollWrapper = document.getElementById('hscroll-wrapper');
-  if (hscrollTrack && hscrollWrapper && window.innerWidth > 768) {
+  if (hscrollTrack && hscrollWrapper) {
     const cards = hscrollTrack.querySelectorAll('.hscroll-card');
-    const totalScroll = hscrollTrack.scrollWidth - window.innerWidth + 100;
+    const hscrollButtons = document.querySelectorAll('[data-hscroll-dir]');
 
-    gsap.to(hscrollTrack, {
-      x: -totalScroll,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#solutions-pj',
-        start: 'top 20%',
-        end: () => `+=${totalScroll}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1
-      }
+    function updateHscrollButtons() {
+      const maxScroll = hscrollWrapper.scrollWidth - hscrollWrapper.clientWidth;
+      hscrollButtons.forEach((button) => {
+        const direction = Number(button.dataset.hscrollDir);
+        button.disabled = maxScroll <= 1 ||
+          (direction < 0 && hscrollWrapper.scrollLeft <= 1) ||
+          (direction > 0 && hscrollWrapper.scrollLeft >= maxScroll - 1);
+      });
+    }
+
+    hscrollButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const firstCard = cards[0];
+        const gap = parseFloat(getComputedStyle(hscrollTrack).gap) || 0;
+        const scrollAmount = firstCard ? firstCard.offsetWidth + gap : hscrollWrapper.clientWidth;
+
+        hscrollWrapper.scrollBy({
+          left: Number(button.dataset.hscrollDir) * scrollAmount,
+          behavior: 'smooth'
+        });
+      });
     });
+
+    hscrollWrapper.addEventListener('scroll', updateHscrollButtons, { passive: true });
+    window.addEventListener('resize', updateHscrollButtons);
+    updateHscrollButtons();
 
     cards.forEach((card, i) => {
       gsap.from(card, {
