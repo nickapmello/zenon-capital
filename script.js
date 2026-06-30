@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const preloader = document.getElementById('preloader');
   const preloaderText = document.getElementById('preloader-text');
   const preloaderFill = document.querySelector('.preloader-fill');
+  const whatsappFloat = document.getElementById('whatsapp-float');
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   const target = 'ZENON';
   let scrambleFrame = 0;
@@ -28,8 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
     preloader.classList.add('hidden');
     document.body.style.overflow = '';
     animateHero();
+    revealWhatsAppFloat();
   }, 2000);
   document.body.style.overflow = 'hidden';
+
+  function revealWhatsAppFloat() {
+    if (!whatsappFloat) return;
+    setTimeout(() => whatsappFloat.classList.add('is-visible'), 650);
+  }
 
   /* --- Navbar Scroll --- */
   const navbar = document.getElementById('navbar');
@@ -46,16 +53,23 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Mobile Menu --- */
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
+  function syncWhatsAppWithMobileMenu() {
+    if (!whatsappFloat) return;
+    whatsappFloat.classList.toggle('is-menu-hidden', mobileMenu.classList.contains('open'));
+  }
+
   menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
     mobileMenu.classList.toggle('open');
     document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    syncWhatsAppWithMobileMenu();
   });
   document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', () => {
       menuToggle.classList.remove('active');
       mobileMenu.classList.remove('open');
       document.body.style.overflow = '';
+      syncWhatsAppWithMobileMenu();
     });
   });
 
