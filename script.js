@@ -252,13 +252,19 @@ if (marqueeTrack) {
   /* --- Magnetic Buttons --- */
   document.querySelectorAll('.magnetic-btn').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
+      if (window.matchMedia("(pointer: coarse)").matches) return;
       const rect = btn.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
       gsap.to(btn, { x: x * 0.2, y: y * 0.2, duration: 0.3, ease: 'power2.out' });
     });
+    
     btn.addEventListener('mouseleave', () => {
       gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1,0.5)' });
+    });
+
+    btn.addEventListener('touchend', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.4, ease: 'power2.out' });
     });
   });
 

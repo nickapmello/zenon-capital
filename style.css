@@ -149,12 +149,23 @@ input,textarea { font-family:inherit; }
   cursor: pointer;
 }
 .btn-primary { background:var(--gold); color:var(--bg-deep); }
-.btn-primary:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow: 0 8px 30px rgba(200,169,126,0.2); }
+.btn-primary:hover { 
+    background: var(--gold-light); 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 30px rgba(200,169,126,0.2); 
+  }
 .btn-primary:active { transform:translateY(0) scale(0.98); }
 .btn-outline { border:1px solid var(--border-accent); color:var(--gold); background:transparent; }
-.btn-outline:hover { background:rgba(200,169,126,0.08); border-color:var(--gold); transform:translateY(-2px); }
+.btn-outline:hover { 
+    background: rgba(200,169,126,0.08); 
+    border-color: var(--gold); 
+    transform: translateY(-2px); 
+  }
 .btn-lg { padding:1rem 2.5rem; font-size:1rem; }
 .btn-full { width:100%; justify-content:center; }
+.btn:active { 
+  transform: scale(0.98); 
+}
 
 /* --- Section Labels & Titles --- */
 .section-label {
