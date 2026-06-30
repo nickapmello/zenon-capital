@@ -109,15 +109,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- Marquee --- */
   const marqueeTrack = document.getElementById('marquee-track');
-  if (marqueeTrack) {
-    marqueeTrack.innerHTML += marqueeTrack.innerHTML;
-    gsap.to(marqueeTrack, {
+if (marqueeTrack) {
+  marqueeTrack.innerHTML += marqueeTrack.innerHTML;
+
+  const marqueeMedia = gsap.matchMedia();
+
+  marqueeMedia.add({
+    isDesktop: "(min-width: 768px)",
+    isMobile: "(max-width: 767px)"
+  }, (context) => {
+    let { isDesktop } = context.conditions;
+
+    const tween = gsap.to(marqueeTrack, {
       xPercent: -50,
-      duration: 30,
+      duration: isDesktop ? 30 : 4, 
       ease: 'none',
       repeat: -1
     });
-  }
+
+    return () => tween.kill(); 
+  });
+}
 
   /* --- About: Scrubbing Text Reveal --- */
   const scrubText = document.getElementById('scrub-text');
