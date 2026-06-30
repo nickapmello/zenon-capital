@@ -297,9 +297,17 @@ if (marqueeTrack) {
       e.preventDefault();
       const href = anchor.getAttribute('href');
       if (href === '#') return;
+      
       const target = document.querySelector(href);
       if (target) {
-        const y = target.getBoundingClientRect().top + window.scrollY - 80;
+        let navOffset = window.innerWidth <= 768 ? 60 : 80;
+        
+        if (href === '#contact-form') {
+          navOffset = window.innerWidth <= 768 ? 150 : 100;
+        }
+
+        const y = target.getBoundingClientRect().top + window.scrollY - navOffset;
+        
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
     });
