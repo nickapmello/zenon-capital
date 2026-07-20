@@ -218,7 +218,7 @@ input,textarea { font-family:inherit; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--gold-light);
+  color: var(--gold);
   margin-bottom: 2rem;
 }
 .hero-label .label-line {
