@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let scrambleFrame = 0;
 
   function scramble() {
-    if (scrambleFrame < 20) {
+    if (preloaderText && scrambleFrame < 20) {
       preloaderText.textContent = target.split('').map((c, i) =>
         scrambleFrame > i * 4 ? c : chars[Math.floor(Math.random() * chars.length)]
       ).join('');
@@ -23,15 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(scramble);
     }
   }
-  scramble();
-  preloaderFill.classList.add('active');
-  setTimeout(() => {
-    preloader.classList.add('hidden');
-    document.body.style.overflow = '';
-    animateHero();
-    revealWhatsAppFloat();
-  }, 2000);
-  document.body.style.overflow = 'hidden';
+  if (preloaderText) scramble();
+  if (preloaderFill) preloaderFill.classList.add('active');
+  if (preloader) {
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      preloader.classList.add('hidden');
+      document.body.style.overflow = '';
+      if (typeof animateHero === 'function') animateHero();
+      revealWhatsAppFloat();
+    }, 1200);
+  }
 
   function revealWhatsAppFloat() {
     if (!whatsappFloat) return;
