@@ -335,21 +335,31 @@ input,textarea { font-family:inherit; }
 /* ============================
    MISSION — Sticky Stack
    ============================ */
-#mission { padding: var(--section-py) 0; }
-.stack-container { position:relative; min-height:200vh; }
+#mission { 
+  padding: var(--section-py) 0;
+  position: relative;
+}
+.stack-container { 
+  position: relative; 
+  width: 100%;
+  margin-top: 2rem;
+}
 .stack-card {
-  position:sticky; top:15vh;
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 20px;
   padding: clamp(2.5rem,5vw,4rem);
-  margin-bottom: 2rem;
-  transition: box-shadow 0.4s var(--ease);
+  margin-bottom: 0;
+  transition: box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+  box-shadow: 0 15px 45px -15px rgba(0,0,0,0.6);
+  transform-origin: center top;
+  will-change: transform, opacity;
 }
-.stack-card:nth-child(1) { z-index:1; }
-.stack-card:nth-child(2) { z-index:2; top:18vh; }
-.stack-card:nth-child(3) { z-index:3; top:21vh; }
-.stack-card:hover { box-shadow: 0 20px 60px -20px rgba(200,169,126,0.1); }
+.stack-card:hover { 
+  border-color: var(--border-accent); 
+  box-shadow: 0 20px 60px -20px rgba(199,150,98,0.15); 
+}
 .stack-number { font-size:3.5rem; font-weight:700; color:var(--gold); opacity:0.3; line-height:1; display:block; margin-bottom:1rem; }
 .stack-title { font-size:clamp(1.5rem,3vw,2.25rem); font-weight:700; letter-spacing:-0.02em; margin-bottom:1rem; }
 .stack-desc { font-size:1.0625rem; color:var(--text-secondary); max-width:65ch; line-height:1.8; }
