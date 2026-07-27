@@ -739,8 +739,24 @@ input,textarea { font-family:inherit; }
   font-size: 0.78125rem;
   color: var(--text-muted);
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.form-awareness-notice {
+  font-size: 0.78125rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
   margin-bottom: 1.25rem;
   line-height: 1.5;
+}
+.form-awareness-notice a {
+  color: var(--gold);
+  text-decoration: underline;
+  transition: color 0.3s var(--ease);
+}
+.form-awareness-notice a:hover,
+.form-awareness-notice a:focus {
+  color: var(--text-primary);
 }
 
 /* ============================
