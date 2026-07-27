@@ -354,9 +354,17 @@ input,textarea { font-family:inherit; }
 #mission { 
   padding: var(--section-py) 0;
   position: relative;
+  isolation: isolate;
+  z-index: 1;
+}
+.pillars-animation-viewport {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
 }
 .stack-container { 
   position: relative; 
+  isolation: isolate;
   width: 100%;
   margin-top: 2rem;
 }
@@ -628,11 +636,13 @@ input,textarea { font-family:inherit; }
   .team-grid { grid-template-columns:1fr; max-width:400px; }
 
   /* Nossos Pilares (Mission) Mobile Reset */
-  #mission {
+  #mission,
+  .pillars-animation-viewport {
     height: auto;
     min-height: auto;
     overflow: visible;
     position: relative;
+    isolation: auto;
   }
   .stack-container {
     height: auto;
