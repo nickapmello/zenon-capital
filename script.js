@@ -362,7 +362,11 @@ if (marqueeTrack) {
         }, 2000);
       }, 2000);
     });
+  }
+
   window.addEventListener('load', () => {
-    ScrollTrigger.refresh();
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.refresh();
+    }
   });
 });
