@@ -356,6 +356,7 @@ input,textarea { font-family:inherit; }
   position: relative;
   isolation: isolate;
   z-index: 1;
+  overflow: clip;
 }
 .pillars-animation-viewport {
   position: relative;

@@ -376,30 +376,26 @@ if (marqueeTrack) {
       gsap.set(stackCards, { clearProps: "transform,opacity,visibility,zIndex,position,top,left,width,scale" });
 
       // Configure initial state for each card
-      stackCards.forEach((card, index) => {
-        if (index === 0) {
-          gsap.set(card, {
-            position: 'relative',
-            top: 0,
-            left: 0,
-            width: '100%',
-            yPercent: 0,
-            scale: 1,
-            autoAlpha: 1,
-            zIndex: 1
-          });
-        } else {
-          gsap.set(card, {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            yPercent: 100,
-            scale: 1,
-            autoAlpha: 0,
-            zIndex: 0
-          });
-        }
+      gsap.set(stackCards[0], {
+        position: 'relative',
+        top: 0,
+        left: 0,
+        width: '100%',
+        yPercent: 0,
+        scale: 1,
+        autoAlpha: 1,
+        zIndex: 1
+      });
+
+      gsap.set(stackCards.slice(1), {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        yPercent: 100,
+        scale: 1,
+        autoAlpha: 0,
+        zIndex: 0
       });
 
       function syncStackContainerHeight() {
@@ -419,7 +415,7 @@ if (marqueeTrack) {
         scrollTrigger: {
           id: "pillars-stack",
           trigger: '#mission',
-          start: 'top top+=80',
+          start: 'top top',
           end: () => `+=${window.innerHeight * 1.5}`,
           pin: true,
           pinSpacing: true,
