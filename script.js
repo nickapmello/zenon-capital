@@ -501,19 +501,26 @@ if (marqueeTrack) {
           headers: { 'Accept': 'application/json' }
         });
 
-        if (response.ok) {
-          if (statusMsg) {
-            statusMsg.className = 'form-status-msg status-success';
-            statusMsg.setAttribute('role', 'status');
-            statusMsg.setAttribute('aria-live', 'polite');
-            statusMsg.textContent = 'Mensagem enviada com sucesso. Nossa equipe entrará em contato em breve.';
-          }
-          form.reset();
-        } else {
-          throw new Error(`HTTP error status: ${response.status}`);
+        let result = null;
+        try {
+          result = await response.json();
+        } catch (jsonErr) {
+          // Response is non-JSON
         }
+
+        if (!response.ok || (result && (result.success === 'false' || result.success === false))) {
+          throw new Error('Falha no envio do formulário.');
+        }
+
+        if (statusMsg) {
+          statusMsg.className = 'form-status-msg status-success';
+          statusMsg.setAttribute('role', 'status');
+          statusMsg.setAttribute('aria-live', 'polite');
+          statusMsg.textContent = 'Mensagem enviada com sucesso. Nossa equipe entrará em contato em breve.';
+        }
+        form.reset();
       } catch (err) {
-        console.error('Contact form submission error:', err);
+        console.error('Contact form submission error:', err.message);
         if (statusMsg) {
           statusMsg.className = 'form-status-msg status-error';
           statusMsg.setAttribute('role', 'alert');

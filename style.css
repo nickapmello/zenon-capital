@@ -722,6 +722,27 @@ input,textarea { font-family:inherit; }
   color: #f87171;
 }
 
+/* Honeypot Field Styling (Hidden without display: none) */
+#company-website {
+  position: absolute;
+  opacity: 0;
+  top: -9999px;
+  left: -9999px;
+  height: 0;
+  width: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Privacy & Sensitive Data Warning */
+.form-privacy-notice {
+  font-size: 0.78125rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
 /* ============================
    FOOTER
    ============================ */
