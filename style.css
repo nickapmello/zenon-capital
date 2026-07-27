@@ -653,6 +653,7 @@ input,textarea { font-family:inherit; }
     min-height: auto !important;
     transform: none !important;
     opacity: 1 !important;
+    visibility: visible !important;
     z-index: auto !important;
     margin-bottom: 0;
   }

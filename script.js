@@ -372,16 +372,34 @@ if (marqueeTrack) {
     const missionMm = gsap.matchMedia();
 
     missionMm.add("(min-width: 768px)", () => {
+      // Clean any previous styles before applying desktop layout
+      gsap.set(stackCards, { clearProps: "all", opacity: 1, visibility: "visible", transform: "none" });
+
+      // Explicitly configure initial state for each card
       stackCards.forEach((card, index) => {
-        card.style.zIndex = index + 1;
-        if (index > 0) {
+        if (index === 0) {
+          gsap.set(card, {
+            position: 'relative',
+            top: 0,
+            left: 0,
+            width: '100%',
+            yPercent: 0,
+            scale: 1,
+            opacity: 1,
+            visibility: 'visible',
+            zIndex: 1
+          });
+        } else {
           gsap.set(card, {
             position: 'absolute',
             top: 0,
             left: 0,
             width: '100%',
             yPercent: 100,
-            opacity: 0
+            scale: 1,
+            opacity: 0,
+            visibility: 'visible',
+            zIndex: index + 1
           });
         }
       });
@@ -427,31 +445,33 @@ if (marqueeTrack) {
       }, 0);
 
       // Step 2: Card 03 (Compromisso) slides up over Card 02 (Valor)
-      missionTl.to(stackCards[2], {
-        yPercent: 0,
-        opacity: 1,
-        ease: 'none',
-        duration: 1
-      }, 1);
+      if (stackCards[2]) {
+        missionTl.to(stackCards[2], {
+          yPercent: 0,
+          opacity: 1,
+          ease: 'none',
+          duration: 1
+        }, 1);
 
-      missionTl.to(stackCards[1], {
-        scale: 0.95,
-        opacity: 0.4,
-        ease: 'none',
-        duration: 1
-      }, 1);
+        missionTl.to(stackCards[1], {
+          scale: 0.95,
+          opacity: 0.4,
+          ease: 'none',
+          duration: 1
+        }, 1);
 
-      missionTl.to(stackCards[0], {
-        scale: 0.90,
-        opacity: 0.2,
-        ease: 'none',
-        duration: 1
-      }, 1);
+        missionTl.to(stackCards[0], {
+          scale: 0.90,
+          opacity: 0.2,
+          ease: 'none',
+          duration: 1
+        }, 1);
+      }
 
       return () => {
         window.removeEventListener('resize', syncStackContainerHeight);
         stackCards.forEach(card => {
-          gsap.set(card, { clearProps: "all" });
+          gsap.set(card, { clearProps: "all", opacity: 1, visibility: "visible", transform: "none" });
         });
         stackContainer.style.minHeight = '';
       };
@@ -459,7 +479,7 @@ if (marqueeTrack) {
 
     missionMm.add("(max-width: 767px)", () => {
       stackCards.forEach(card => {
-        gsap.set(card, { clearProps: "all" });
+        gsap.set(card, { clearProps: "all", opacity: 1, visibility: "visible", transform: "none" });
       });
       stackContainer.style.minHeight = '';
     });
