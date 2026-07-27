@@ -537,6 +537,12 @@ if (marqueeTrack) {
     });
   }
 
+  /* --- Dynamic Footer Year --- */
+  const currentYearElement = document.querySelector('#current-year');
+  if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+  }
+
   window.addEventListener('load', () => {
     if (typeof ScrollTrigger !== 'undefined') {
       ScrollTrigger.refresh();
