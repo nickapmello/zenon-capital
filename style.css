@@ -610,7 +610,43 @@ input,textarea { font-family:inherit; }
   .bento-grid { grid-template-columns:1fr; }
   .bento-large { grid-column:auto; }
   .team-grid { grid-template-columns:1fr; max-width:400px; }
-  .stack-card { position:relative; top:auto !important; }
+
+  /* Nossos Pilares (Mission) Mobile Reset */
+  #mission {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+    position: relative;
+  }
+  .stack-container {
+    height: auto;
+    min-height: auto !important;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .stack-card {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: auto !important;
+    margin-bottom: 0;
+  }
+  #solutions {
+    position: relative;
+    z-index: auto;
+    clear: both;
+    margin-top: 0;
+  }
+
   .form-row { grid-template-columns:1fr; }
   .footer-top { flex-direction:column; }
   .hscroll-controls { margin-top:-0.5rem; }

@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
       if (typeof animateHero === 'function') animateHero();
       revealWhatsAppFloat();
+      ScrollTrigger.refresh();
     }, 1200);
   }
 
@@ -363,85 +364,104 @@ if (marqueeTrack) {
     });
   }
 
-  /* --- Mission Stack Cards Animation (Zero Dead Zone) --- */
+  /* --- Mission Stack Cards Animation --- */
   const stackContainer = document.getElementById('stack-container');
   const stackCards = gsap.utils.toArray('.stack-card');
 
   if (stackContainer && stackCards.length > 1) {
-    stackCards.forEach((card, index) => {
-      card.style.zIndex = index + 1;
-      if (index > 0) {
-        gsap.set(card, {
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          yPercent: 100,
-          opacity: 0
-        });
-      }
-    });
+    const missionMm = gsap.matchMedia();
 
-    function syncStackContainerHeight() {
-      let maxH = 0;
-      stackCards.forEach(card => {
-        const cardH = card.offsetHeight;
-        if (cardH > maxH) maxH = cardH;
+    missionMm.add("(min-width: 768px)", () => {
+      stackCards.forEach((card, index) => {
+        card.style.zIndex = index + 1;
+        if (index > 0) {
+          gsap.set(card, {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            yPercent: 100,
+            opacity: 0
+          });
+        }
       });
-      if (maxH > 0) {
-        stackContainer.style.minHeight = `${maxH}px`;
-      }
-    }
-    syncStackContainerHeight();
-    window.addEventListener('resize', syncStackContainerHeight);
 
-    const missionTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#mission',
-        start: 'top top+=80',
-        end: () => `+=${window.innerHeight * 1.2}`,
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.5,
-        invalidateOnRefresh: true
+      function syncStackContainerHeight() {
+        let maxH = 0;
+        stackCards.forEach(card => {
+          const cardH = card.offsetHeight;
+          if (cardH > maxH) maxH = cardH;
+        });
+        if (maxH > 0) {
+          stackContainer.style.minHeight = `${maxH}px`;
+        }
       }
+      syncStackContainerHeight();
+      window.addEventListener('resize', syncStackContainerHeight);
+
+      const missionTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#mission',
+          start: 'top top+=80',
+          end: () => `+=${window.innerHeight * 1.2}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.5,
+          invalidateOnRefresh: true
+        }
+      });
+
+      // Step 1: Card 02 (Valor) slides up over Card 01 (Missão)
+      missionTl.to(stackCards[1], {
+        yPercent: 0,
+        opacity: 1,
+        ease: 'none',
+        duration: 1
+      }, 0);
+
+      missionTl.to(stackCards[0], {
+        scale: 0.95,
+        opacity: 0.4,
+        ease: 'none',
+        duration: 1
+      }, 0);
+
+      // Step 2: Card 03 (Compromisso) slides up over Card 02 (Valor)
+      missionTl.to(stackCards[2], {
+        yPercent: 0,
+        opacity: 1,
+        ease: 'none',
+        duration: 1
+      }, 1);
+
+      missionTl.to(stackCards[1], {
+        scale: 0.95,
+        opacity: 0.4,
+        ease: 'none',
+        duration: 1
+      }, 1);
+
+      missionTl.to(stackCards[0], {
+        scale: 0.90,
+        opacity: 0.2,
+        ease: 'none',
+        duration: 1
+      }, 1);
+
+      return () => {
+        window.removeEventListener('resize', syncStackContainerHeight);
+        stackCards.forEach(card => {
+          gsap.set(card, { clearProps: "all" });
+        });
+        stackContainer.style.minHeight = '';
+      };
     });
 
-    // Step 1: Card 02 (Valor) slides up over Card 01 (Missão)
-    missionTl.to(stackCards[1], {
-      yPercent: 0,
-      opacity: 1,
-      ease: 'none',
-      duration: 1
-    }, 0);
-
-    missionTl.to(stackCards[0], {
-      scale: 0.95,
-      opacity: 0.4,
-      ease: 'none',
-      duration: 1
-    }, 0);
-
-    // Step 2: Card 03 (Compromisso) slides up over Card 02 (Valor)
-    missionTl.to(stackCards[2], {
-      yPercent: 0,
-      opacity: 1,
-      ease: 'none',
-      duration: 1
-    }, 1);
-
-    missionTl.to(stackCards[1], {
-      scale: 0.95,
-      opacity: 0.4,
-      ease: 'none',
-      duration: 1
-    }, 1);
-
-    missionTl.to(stackCards[0], {
-      scale: 0.90,
-      opacity: 0.2,
-      ease: 'none',
-      duration: 1
-    }, 1);
+    missionMm.add("(max-width: 767px)", () => {
+      stackCards.forEach(card => {
+        gsap.set(card, { clearProps: "all" });
+      });
+      stackContainer.style.minHeight = '';
+    });
   }
 });
