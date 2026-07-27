@@ -327,44 +327,206 @@ if (marqueeTrack) {
   });
 
   /* --- Phone Input Mask --- */
+  /* --- Phone Input Mask --- */
   const phoneInput = document.getElementById('phone');
   if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
-      let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
-      e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.substring(0, 11);
+      if (v.length > 10) {
+        e.target.value = `(${v.substring(0, 2)}) ${v.substring(2, 7)}-${v.substring(7, 11)}`;
+      } else if (v.length > 6) {
+        e.target.value = `(${v.substring(0, 2)}) ${v.substring(2, 6)}-${v.substring(6, 10)}`;
+      } else if (v.length > 2) {
+        e.target.value = `(${v.substring(0, 2)}) ${v.substring(2)}`;
+      } else if (v.length > 0) {
+        e.target.value = `(${v}`;
+      } else {
+        e.target.value = '';
+      }
     });
   }
 
-  /* --- Form Submit & Loading --- */
+  /* --- Contact Form Validation & Real HTTP Submit --- */
   const form = document.getElementById('contact-form');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    const statusMsg = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    function setError(elementId, containerSelector, errorText) {
+      const el = document.getElementById(elementId);
+      const container = el ? el.closest(containerSelector) : null;
+      const errorSpan = document.getElementById(`error-${elementId}`);
+      if (container) container.classList.add('has-error');
+      if (el) {
+        el.setAttribute('aria-invalid', 'true');
+        el.setAttribute('aria-describedby', `error-${elementId}`);
+      }
+      if (errorSpan) errorSpan.textContent = errorText;
+    }
+
+    function clearError(elementId, containerSelector) {
+      const el = document.getElementById(elementId);
+      const container = el ? el.closest(containerSelector) : null;
+      const errorSpan = document.getElementById(`error-${elementId}`);
+      if (container) container.classList.remove('has-error');
+      if (el) {
+        el.removeAttribute('aria-invalid');
+        el.removeAttribute('aria-describedby');
+      }
+      if (errorSpan) errorSpan.textContent = '';
+    }
+
+    // Clear errors on user input
+    ['name', 'email', 'phone', 'interest', 'message'].forEach(id => {
+      const input = document.getElementById(id);
+      if (input) {
+        input.addEventListener('input', () => clearError(id, '.form-group'));
+        input.addEventListener('change', () => clearError(id, '.form-group'));
+      }
+    });
+
+    const radios = form.querySelectorAll('input[name="clientType"]');
+    radios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        const fieldsetContainer = document.getElementById('fieldset-clientType');
+        const errorSpan = document.getElementById('error-clientType');
+        if (fieldsetContainer) fieldsetContainer.classList.remove('has-error');
+        if (errorSpan) errorSpan.textContent = '';
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const btnText = submitBtn.querySelector('span');
-      const formFields = form.querySelectorAll('input, textarea');
-      
-      submitBtn.disabled = true;
-      submitBtn.classList.add('btn-loading');
+
+      let isValid = true;
+      let firstInvalid = null;
+
+      // 1. Validate Name
+      const nameVal = document.getElementById('name')?.value.trim() || '';
+      if (!nameVal) {
+        setError('name', '.form-group', 'Informe seu nome.');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = document.getElementById('name');
+      } else {
+        clearError('name', '.form-group');
+      }
+
+      // 2. Validate Email
+      const emailVal = document.getElementById('email')?.value.trim() || '';
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailVal || !emailRegex.test(emailVal)) {
+        setError('email', '.form-group', 'Digite um e-mail válido.');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = document.getElementById('email');
+      } else {
+        clearError('email', '.form-group');
+      }
+
+      // 3. Validate Phone
+      const phoneVal = document.getElementById('phone')?.value.replace(/\D/g, '') || '';
+      if (!phoneVal || phoneVal.length < 10) {
+        setError('phone', '.form-group', 'Informe um telefone válido.');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = document.getElementById('phone');
+      } else {
+        clearError('phone', '.form-group');
+      }
+
+      // 4. Validate Service (Interest)
+      const interestVal = document.getElementById('interest')?.value || '';
+      if (!interestVal) {
+        setError('interest', '.form-group', 'Selecione o serviço de interesse.');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = document.getElementById('interest');
+      } else {
+        clearError('interest', '.form-group');
+      }
+
+      // 5. Validate Client Type (Radio)
+      const clientTypeChecked = form.querySelector('input[name="clientType"]:checked');
+      if (!clientTypeChecked) {
+        const fieldsetContainer = document.getElementById('fieldset-clientType');
+        const errorSpan = document.getElementById('error-clientType');
+        if (fieldsetContainer) fieldsetContainer.classList.add('has-error');
+        if (errorSpan) errorSpan.textContent = 'Selecione Pessoa Física ou Empresa.';
+        isValid = false;
+        if (!firstInvalid) firstInvalid = form.querySelector('input[name="clientType"]');
+      } else {
+        const fieldsetContainer = document.getElementById('fieldset-clientType');
+        const errorSpan = document.getElementById('error-clientType');
+        if (fieldsetContainer) fieldsetContainer.classList.remove('has-error');
+        if (errorSpan) errorSpan.textContent = '';
+      }
+
+      // 6. Validate Message
+      const messageVal = document.getElementById('message')?.value.trim() || '';
+      if (!messageVal) {
+        setError('message', '.form-field-full', 'Descreva brevemente como podemos ajudar.');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = document.getElementById('message');
+      } else {
+        clearError('message', '.form-field-full');
+      }
+
+      if (!isValid) {
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      // Clear previous status messages
+      if (statusMsg) {
+        statusMsg.className = 'form-status-msg';
+        statusMsg.textContent = '';
+      }
+
+      const btnText = submitBtn ? submitBtn.querySelector('span') : null;
+      const originalText = btnText ? btnText.textContent : 'Enviar mensagem';
+
+      // Set loading state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('btn-loading');
+      }
+      if (btnText) btnText.textContent = 'Enviando...';
+
+      const formFields = form.querySelectorAll('input, select, textarea');
       formFields.forEach(field => field.disabled = true);
-      
-      const originalText = btnText.textContent;
-      btnText.textContent = 'Enviando...';
 
-      setTimeout(() => {
-        submitBtn.classList.remove('btn-loading');
-        btnText.textContent = 'Mensagem enviada';
-        gsap.fromTo(submitBtn, { scale: 0.98 }, { scale: 1, duration: 0.3, ease: 'elastic.out(1,0.5)' });
-        
-        form.reset();
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: form.method || 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
 
-        setTimeout(() => {
-          btnText.textContent = originalText;
-          formFields.forEach(field => field.disabled = false);
+        if (response.ok) {
+          if (statusMsg) {
+            statusMsg.className = 'form-status-msg status-success';
+            statusMsg.setAttribute('role', 'status');
+            statusMsg.setAttribute('aria-live', 'polite');
+            statusMsg.textContent = 'Mensagem enviada com sucesso. Nossa equipe entrará em contato em breve.';
+          }
+          form.reset();
+        } else {
+          throw new Error(`HTTP error status: ${response.status}`);
+        }
+      } catch (err) {
+        console.error('Contact form submission error:', err);
+        if (statusMsg) {
+          statusMsg.className = 'form-status-msg status-error';
+          statusMsg.setAttribute('role', 'alert');
+          statusMsg.textContent = 'Não foi possível enviar sua mensagem agora. Tente novamente ou entre em contato pelo telefone ou e-mail informado nesta página.';
+        }
+      } finally {
+        if (submitBtn) {
           submitBtn.disabled = false;
-        }, 2000);
-      }, 2000);
+          submitBtn.classList.remove('btn-loading');
+        }
+        if (btnText) btnText.textContent = originalText;
+        formFields.forEach(field => field.disabled = false);
+      }
     });
   }
 
