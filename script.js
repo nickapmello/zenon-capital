@@ -99,12 +99,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function animateCounters() {
     document.querySelectorAll('[data-count]').forEach(el => {
       const target = parseFloat(el.dataset.count);
+      if (!Number.isFinite(target)) return;
       const isDecimal = el.dataset.decimal === 'true';
       const obj = { val: 0 };
       gsap.to(obj, {
-        val: target, duration: 2, ease: 'power2.out', delay: 1.2,
+        val: target, duration: 2, ease: 'power2.out', delay: 0.8,
         onUpdate: () => {
           el.textContent = isDecimal ? obj.val.toFixed(1) : Math.floor(obj.val);
+        },
+        onComplete: () => {
+          el.textContent = isDecimal ? target.toFixed(1) : Math.floor(target);
         }
       });
     });
