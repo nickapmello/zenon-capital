@@ -319,6 +319,10 @@ if (marqueeTrack) {
           navOffset = window.innerWidth <= 768 ? 150 : 100;
         }
 
+        if (href === '#team') {
+          navOffset = window.innerWidth <= 768 ? 20 : 25;
+        }
+
         const y = target.getBoundingClientRect().top + window.scrollY - navOffset;
         
         window.scrollTo({ top: y, behavior: 'smooth' });
