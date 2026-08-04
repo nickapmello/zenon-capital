@@ -313,14 +313,18 @@ if (marqueeTrack) {
       
       const target = document.querySelector(href);
       if (target) {
+        if (href === '#team') {
+          const headerElem = target.querySelector('.section-header') || target;
+          const navOffset = window.innerWidth <= 768 ? 75 : 85;
+          const y = headerElem.getBoundingClientRect().top + window.scrollY - navOffset;
+          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+          return;
+        }
+
         let navOffset = window.innerWidth <= 768 ? 60 : 80;
         
         if (href === '#contact-form') {
           navOffset = window.innerWidth <= 768 ? 150 : 100;
-        }
-
-        if (href === '#team') {
-          navOffset = window.innerWidth <= 768 ? 20 : 25;
         }
 
         const y = target.getBoundingClientRect().top + window.scrollY - navOffset;
