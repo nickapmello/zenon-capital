@@ -313,8 +313,8 @@ if (marqueeTrack) {
       
       const target = document.querySelector(href);
       if (target) {
-        if (href === '#team') {
-          const headerElem = target.querySelector('.section-header') || target;
+        const headerElem = target.querySelector('.section-header');
+        if (headerElem) {
           const navOffset = window.innerWidth <= 768 ? 75 : 85;
           const y = headerElem.getBoundingClientRect().top + window.scrollY - navOffset;
           window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
