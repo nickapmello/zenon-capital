@@ -304,7 +304,27 @@ if (marqueeTrack) {
     scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: 1 }
   });
 
+  /* --- Smooth Scroll for Anchor Links --- */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = anchor.getAttribute('href');
+      if (href === '#') return;
+      
+      const target = document.querySelector(href);
+      if (target) {
+        let navOffset = window.innerWidth <= 768 ? 60 : 80;
+        
+        if (href === '#contact-form') {
+          navOffset = window.innerWidth <= 768 ? 150 : 100;
+        }
 
+        const y = target.getBoundingClientRect().top + window.scrollY - navOffset;
+        
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
 
   /* --- Phone Input Mask --- */
   /* --- Phone Input Mask --- */

@@ -23,21 +23,6 @@
   --ease: cubic-bezier(0.16,1,0.3,1);
   --container: 1400px;
   --section-py: clamp(6rem,12vw,10rem);
-  --header-scroll-offset: 104px;
-}
-
-/* --- Section Scroll Margins for Header Alignment --- */
-#hero {
-  scroll-margin-top: 0;
-}
-
-#about,
-#solutions,
-#solutions-pj,
-#team,
-#contact,
-#contact-form {
-  scroll-margin-top: var(--header-scroll-offset);
 }
 
 /* --- Reset --- */
@@ -830,9 +815,6 @@ input,textarea { font-family:inherit; }
   }
 }
 @media(max-width:768px) {
-  :root {
-    --header-scroll-offset: 90px;
-  }
   .nav-links, .nav-cta { display:none; }
   .nav-hamburger { display:flex; }
   .hero-title { font-size:clamp(2rem,8vw,3rem); }
