@@ -1,12 +1,17 @@
 /**
  * Zenon Capital — Configurações Globais do Projeto
- * Centraliza URLs institucionais e pontos de integração para evitar divergências.
+ * Centraliza URLs institucionais, redes sociais e pontos de integração para evitar divergências.
  */
 
 const ZENON_CONFIG = Object.freeze({
   portalUrl: 'https://app.zenoncapital.com.br/auth',
   contactEmail: 'contato@zenoncapital.com.br',
-  phone: '(44) 3218-2300'
+  phone: '(44) 3218-2300',
+  socials: Object.freeze({
+    instagram: 'https://www.instagram.com/zenon.capital/',
+    linkedin: 'https://www.linkedin.com/company/zenon-capital/',
+    twitter: 'https://x.com/zenoncapital'
+  })
 });
 
 /**
