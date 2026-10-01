@@ -215,7 +215,7 @@ module.exports = async (req, res) => {
   if (hasResend) {
     try {
       const fromEmail = process.env.RESEND_FROM || 'Zenon Capital <onboarding@resend.dev>';
-      const resendResponse = await fetch('https://api.resend.com/emails', {
+      let resendResponse = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${resendApiKey.trim()}`,
@@ -231,7 +231,39 @@ module.exports = async (req, res) => {
         })
       });
 
-      const resendData = await resendResponse.json();
+      let resendData = await resendResponse.json();
+
+      // Tratamento inteligente caso o domínio corporativo ainda não tenha sido verificado no painel da Resend
+      if (!resendResponse.ok && resendResponse.status === 403 && resendData.message && resendData.message.includes('only send testing emails to your own email address')) {
+        const match = resendData.message.match(/\(([^)]+)\)/);
+        const fallbackEmail = match ? match[1] : 'nicolas.mello@edu.unifil.br';
+
+        const advisoryNotice = `
+          <div style="background-color: #FFF8E7; border-left: 4px solid #C79662; padding: 14px 18px; margin-bottom: 24px; font-family: sans-serif; font-size: 13px; color: #6F3C2C; border-radius: 2px; line-height: 1.5;">
+            <strong>Aviso de Configuração Resend:</strong> Esta mensagem foi entregue em <strong>${fallbackEmail}</strong> porque o domínio corporativo <code>zenoncapital.com.br</code> ainda está pendente de verificação DNS em <a href="https://resend.com/domains" target="_blank" style="color: #6F3C2C; font-weight: 700;">resend.com/domains</a>. Assim que verificado, as mensagens serão entregues automaticamente em <code>${RECEIVER_EMAIL}</code>.
+          </div>
+        `;
+
+        const fallbackHtml = emailHtml.replace('<div class="content">', '<div class="content">' + advisoryNotice);
+
+        resendResponse = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${resendApiKey.trim()}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: fromEmail,
+            to: [fallbackEmail],
+            reply_to: trimmedEmail,
+            subject: `[Contato Site] ${assuntoLabel} — ${trimmedNome}`,
+            html: fallbackHtml,
+            text: emailText
+          })
+        });
+
+        resendData = await resendResponse.json();
+      }
 
       if (!resendResponse.ok) {
         throw new Error(resendData.message || resendData.error || `Erro HTTP ${resendResponse.status} na API do Resend`);
