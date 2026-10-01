@@ -7,47 +7,525 @@
   <meta name="description" content="Mais do que soluções, direção. Realizamos a Arquitetura de Capital das empresas.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <!-- Camada de Ruído Tátil Global (Noise Overlay) -->
+  <!-- Textura Global de Grão Analógico -->
   <div class="noise-overlay" aria-hidden="true"></div>
 
-  <!-- Etapa 2: Fundo Completo & Atmosfera Isolada (sem navbar, sem cards, sem textos) -->
+  <!-- 1. TOPBAR & NAVEGAÇÃO -->
+  <header class="site-header">
+    <div class="site-container header-inner">
+      <a href="#stage-hero" class="brand-logo" aria-label="Zenon Capital Início">
+        <!-- Ícone / Brasão Arquitetônico Zenon -->
+        <svg class="brand-icon" viewBox="0 0 36 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 18C1 8.61116 8.61116 1 18 1C27.3888 1 35 8.61116 35 18V45H1V18Z" stroke="#EEE9DF" stroke-width="2"/>
+          <path d="M18 1V45" stroke="#EEE9DF" stroke-width="1.5"/>
+          <path d="M1 18H35" stroke="#EEE9DF" stroke-width="1.5"/>
+          <path d="M7 6L29 30" stroke="#EEE9DF" stroke-width="1.5"/>
+          <path d="M29 6L7 30" stroke="#EEE9DF" stroke-width="1.5"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">ZENON</span>
+          <span class="brand-sub">arquitetura de capital</span>
+        </div>
+      </a>
+
+      <nav class="header-nav" aria-label="Navegação principal">
+        <ul class="nav-links">
+          <li><a href="#stage-hero" class="nav-link">Home</a></li>
+          <li><a href="#stage-quem-e" class="nav-link">Sobre</a></li>
+          <li><a href="#stage-frentes" class="nav-link">Soluções</a></li>
+          <li><a href="#stage-contato" class="nav-link">Contato</a></li>
+        </ul>
+        <div class="nav-divider" aria-hidden="true"></div>
+        <a href="#stage-contato" class="nav-portal" target="_blank" rel="noopener noreferrer">Portal do Cliente</a>
+        <div class="header-cta">
+          <a href="#stage-contato" class="btn btn-solid-gold">Agendar Diagnóstico</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <!-- 1. Hero / Abertura: Oceano & Veleiro com Iluminação Lateral -->
-    <section class="stage-hero" id="stage-hero" aria-label="Fundo Abertura"></section>
+    <!-- 2. HERO / ABERTURA -->
+    <section class="stage-hero" id="stage-hero" aria-label="Abertura">
+      <div class="site-container">
+        <div class="hero-content">
+          <span class="section-eyebrow gold">Arquitetura de Capital</span>
+          <h1 class="hero-title">
+            Mais do que<br>
+            soluções,<br>
+            <span class="accent-word">direção.</span>
+          </h1>
 
-    <!-- 2. Quem é a Zenon: Fundo Creme Editorial -->
-    <section class="stage-quem-e" id="stage-quem-e" aria-label="Fundo Quem é a Zenon"></section>
+          <div class="hero-quote-card">
+            <p>Somos quem realiza a Arquitetura de Capital das empresas: organizamos a estrutura que sustenta cada decisão do negócio.</p>
+          </div>
 
-    <!-- 3. Arquitetura de Capital: Azul Profundo Marinho -->
-    <section class="stage-arquitetura" id="stage-arquitetura" aria-label="Fundo Arquitetura de Capital"></section>
+          <div class="hero-actions">
+            <a href="#stage-contato" class="btn btn-solid-gold">Agendar diagnóstico</a>
+            <a href="#stage-frentes" class="btn btn-outline-light">Conhecer nossas soluções</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- 4. Para quem é: Areia Suave -->
-    <section class="stage-para-quem-e" id="stage-para-quem-e" aria-label="Fundo Para quem é"></section>
+    <!-- 3. QUEM É A ZENON -->
+    <section class="stage-quem-e" id="stage-quem-e" aria-label="Quem é a Zenon">
+      <div class="site-container">
+        <div class="two-col-grid">
+          <div>
+            <span class="section-eyebrow terracotta">Quem é a Zenon</span>
+            <h2 class="section-title-dark">Nascemos para olhar o negócio por inteiro.</h2>
+          </div>
 
-    <!-- 5. Frentes de Atuação: Gradiente Terracota / Cobre / Luz Bronze -->
-    <section class="stage-frentes" id="stage-frentes" aria-label="Fundo Frentes de Atuação"></section>
+          <div class="editorial-copy">
+            <p>A Zenon nasceu da trajetória de profissionais das áreas financeira, contábil e jurídica e do desejo de construir uma empresa mais estratégica e comprometida com o empresário.</p>
+            <p>A Zenon não é uma consultoria: somos quem realiza a Arquitetura de Capital das empresas, com contábil, societário, crédito, capital e tributário trabalhando no mesmo diagnóstico.</p>
+            <p>Em vez de respostas soltas, o empresário recebe uma leitura conjunta, uma ordem clara de prioridades e alguém ao seu lado nas decisões que definem o futuro do negócio.</p>
+          </div>
+        </div>
 
-    <!-- 6. Diagnóstico: Oceano Noturno com Rastro d'Água -->
-    <section class="stage-diagnostico" id="stage-diagnostico" aria-label="Fundo Diagnóstico"></section>
+        <div class="bar-highlight">
+          <!-- Ícone Espiral Zenon -->
+          <svg class="highlight-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 4C10.268 4 4 10.268 4 18C4 25.732 10.268 32 18 32C23.5228 32 28.2728 28.7909 30.5 24.1667C31.5 22.091 32 19.7825 32 17.3333C32 11.8105 27.5228 7.33333 22 7.33333C17.5817 7.33333 14 10.915 14 15.3333C14 18.647 16.6863 21.3333 20 21.3333C22.2091 21.3333 24 19.5425 24 17.3333" stroke="#6B3A2B" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <span class="highlight-quote">Entender antes de recomendar.</span>
+        </div>
+      </div>
+    </section>
 
-    <!-- 7. Fusões e Aquisições: Grafite Escuro Neutro -->
-    <section class="stage-fusoes" id="stage-fusoes" aria-label="Fundo Fusões e Aquisições"></section>
+    <!-- 4. ARQUITETURA DE CAPITAL -->
+    <section class="stage-arquitetura" id="stage-arquitetura" aria-label="Arquitetura de Capital">
+      <div class="site-container">
+        <div class="two-col-grid">
+          <div>
+            <span class="section-eyebrow gold">Arquitetura de Capital</span>
+            <h2 class="section-title-light">Enxergamos o capital de forma mais ampla.</h2>
+          </div>
 
-    <!-- 8. Nosso Princípio: Terracota Nobre Sólido -->
-    <section class="stage-principio" id="stage-principio" aria-label="Fundo Nosso Princípio"></section>
+          <div>
+            <div class="arch-symbols">
+              <!-- Degraus -->
+              <svg class="arch-symbol-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M3 20H8V15H13V10H18V5H21" stroke="#C79662" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <!-- Pilares -->
+              <svg class="arch-symbol-icon" viewBox="0 0 24 24" fill="none">
+                <line x1="6" y1="4" x2="6" y2="20" stroke="#C79662" stroke-width="2" stroke-linecap="round"/>
+                <line x1="12" y1="4" x2="12" y2="20" stroke="#C79662" stroke-width="2" stroke-linecap="round"/>
+                <line x1="18" y1="4" x2="18" y2="20" stroke="#C79662" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <!-- Arco -->
+              <svg class="arch-symbol-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M5 20V12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12V20" stroke="#C79662" stroke-width="2"/>
+              </svg>
+            </div>
 
-    <!-- 9. Por que a Zenon: Oceano com Reflexo Solar no Topo -->
-    <section class="stage-por-que" id="stage-por-que" aria-label="Fundo Por que a Zenon"></section>
+            <div class="editorial-copy">
+              <p>A Arquitetura de Capital organiza toda a estrutura financeira, tributária, contábil e empresarial que sustenta o crescimento de um negócio: como ele gera, usa, protege, capta e direciona seus recursos.</p>
+              <p>Como numa construção, cada parte sustenta outra. Uma decisão de crédito muda o caixa. Uma mudança tributária muda a margem. Uma expansão muda a necessidade de capital. Olhar as peças juntas permite decidir na ordem certa.</p>
+            </div>
+          </div>
+        </div>
 
-    <!-- 10. Contato: Creme Editorial -->
-    <section class="stage-contato" id="stage-contato" aria-label="Fundo Contato"></section>
+        <div class="monumental-quote-row">
+          <h3 class="monumental-quote">Capital não é apenas dinheiro disponível.</h3>
+          <p class="monumental-sub">É uma estrutura viva, que sustenta a saúde e o futuro da empresa. Por isso começamos pela estrutura, não pelo produto.</p>
+        </div>
+      </div>
+    </section>
 
-    <!-- 11. Rodapé: Azul Noturno Profundo -->
-    <footer class="stage-rodape" id="stage-rodape" aria-label="Fundo Rodapé"></footer>
+    <!-- 5. PARA QUEM É (CARDS EM ARCO) -->
+    <section class="stage-para-quem-e" id="stage-para-quem-e" aria-label="Para quem é">
+      <div class="site-container">
+        <div class="two-col-grid">
+          <div>
+            <span class="section-eyebrow terracotta">Para quem é</span>
+            <h2 class="section-title-dark">Para empresas que já cresceram e agora enfrentam decisões maiores.</h2>
+          </div>
+
+          <div class="editorial-copy">
+            <p>Atendemos empresários e tomadores de decisão de negócios maduros, em sua maioria no Lucro Real ou no Lucro Presumido, com faturamento anual a partir de R$ 10 milhões.</p>
+            <p>Nesse estágio, os desafios deixam de ser pontuais. O caixa sente o crescimento, os tributos pesam na margem, e crédito, sócios e expansão passam a depender uns dos outros.</p>
+            <p>Quem está nesse momento não procura mais um fornecedor. Procura clareza para decidir.</p>
+          </div>
+        </div>
+
+        <div class="arch-cards-wrapper">
+          <span class="arch-cards-label">Entre essas empresas, também estão:</span>
+
+          <div class="arch-cards-grid">
+            <!-- Card 1 -->
+            <div class="arch-card">
+              <svg class="arch-card-icon" viewBox="0 0 36 36" fill="none">
+                <rect x="6" y="24" width="6" height="8" fill="#172D44"/>
+                <rect x="15" y="16" width="6" height="16" fill="#172D44"/>
+                <rect x="24" y="8" width="6" height="24" fill="#172D44"/>
+              </svg>
+              <h3 class="arch-card-text">Empresas em crescimento ou expansão</h3>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="arch-card">
+              <svg class="arch-card-icon" viewBox="0 0 36 36" fill="none">
+                <path d="M12 28V14C12 9.58172 15.5817 6 20 6C24.4183 6 28 9.58172 28 14V22" stroke="#172D44" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+              <h3 class="arch-card-text">Empresas saindo do Simples Nacional</h3>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="arch-card">
+              <svg class="arch-card-icon" viewBox="0 0 36 36" fill="none">
+                <path d="M8 28V16C8 10.4772 12.4772 6 18 6C23.5228 6 28 10.4772 28 16V28" stroke="#172D44" stroke-width="2.5"/>
+              </svg>
+              <h3 class="arch-card-text">Empresas familiares</h3>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="arch-card">
+              <svg class="arch-card-icon" viewBox="0 0 36 36" fill="none">
+                <path d="M6 24C6 14.0589 14.0589 6 24 6H30V24H6Z" stroke="#172D44" stroke-width="2.5"/>
+                <line x1="24" y1="6" x2="14" y2="24" stroke="#172D44" stroke-width="2"/>
+                <line x1="24" y1="6" x2="20" y2="24" stroke="#172D44" stroke-width="2"/>
+              </svg>
+              <h3 class="arch-card-text">Empresários diante de uma decisão estratégica</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FRENTES DE ATUAÇÃO -->
+    <section class="stage-frentes" id="stage-frentes" aria-label="Frentes de atuação">
+      <div class="site-container">
+        <div class="frentes-header">
+          <div>
+            <span class="section-eyebrow gold">Frentes de Atuação</span>
+            <h2 class="section-title-light">Oito frentes, um único ponto de partida.</h2>
+          </div>
+          <a href="#stage-contato" class="btn btn-light-solid">Conhecer nossas soluções</a>
+        </div>
+
+        <div class="frentes-grid">
+          <a href="#stage-diagnostico" class="frente-item">
+            <span class="frente-name">01 Diagnóstico Zenon</span>
+            <span class="frente-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="#stage-contato" class="frente-item">
+            <span class="frente-name">02 Adequação à nova Reforma Tributária</span>
+            <span class="frente-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="#stage-fusoes" class="frente-item">
+            <span class="frente-name">03 Fusões e Aquisições de Empresas</span>
+            <span class="frente-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="#stage-contato" class="frente-item">
+            <span class="frente-name">04 Inteligência tributária</span>
+            <span class="frente-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="#stage-contato" class="frente-item">
+            <span class="frente-name">05 Linhas de crédito e antecipação</span>
+            <span class="frente-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="#stage-contato" class="frente-item">
+            <span class="frente-name">06 Mini banco proprietário</span>
+            <span class="frente-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="#stage-contato" class="frente-item">
+            <span class="frente-name">07 Acesso ao mercado de capitais</span>
+            <span class="frente-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="#stage-contato" class="frente-item">
+            <span class="frente-name">08 Investimento e expansão</span>
+            <span class="frente-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. DIAGNÓSTICO ZENON -->
+    <section class="stage-diagnostico" id="stage-diagnostico" aria-label="Diagnóstico Zenon">
+      <div class="site-container">
+        <div class="diagnostico-grid">
+          <div>
+            <h2 class="diagnostico-headline">
+              Diagnóstico<br>
+              Zenon
+            </h2>
+          </div>
+
+          <div class="diagnostico-content">
+            <p>O diagnóstico é o primeiro passo. Os times tributário, societário, de crédito e de capital analisam a empresa ao mesmo tempo e trazem à tona o que costuma ficar escondido entre uma área e outra: gargalos de caixa, oportunidades tributárias e estruturas desalinhadas.</p>
+            <p>Como as análises acontecem juntas, uma descoberta informa a outra. Uma oportunidade tributária pode mudar a leitura do caixa. Uma dívida cara pode mudar a prioridade de uma expansão.</p>
+            <p>A entrega é um documento único: o que cada área encontrou, o que resolver primeiro e por quê. A partir dele, você decide com liberdade se e como deseja seguir com a Zenon.</p>
+
+            <div class="diagnostico-specs">
+              <div class="spec-line">
+                <strong>Quando faz sentido:</strong> <span>antes de qualquer outra solução, para enxergar riscos e oportunidades com clareza.</span>
+              </div>
+              <div class="spec-line">
+                <strong>O que você leva:</strong> <span>um mapa do que precisa ser feito, em que ordem e por quê.</span>
+              </div>
+            </div>
+
+            <div>
+              <a href="#stage-contato" class="btn btn-solid-gold">Agendar diagnóstico</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FUSÕES E AQUISIÇÕES -->
+    <section class="stage-fusoes" id="stage-fusoes" aria-label="Fusões e Aquisições">
+      <div class="site-container">
+        <div class="two-col-grid">
+          <div>
+            <h2 class="section-title-light">Fusões e aquisições:<br>preparar antes de negociar.</h2>
+          </div>
+
+          <div class="editorial-copy">
+            <p>Comprar uma empresa, vender a sua, unir-se a um parceiro ou receber um sócio investidor são decisões que dependem do que a empresa mostra na mesa: números, contratos, passivos e o quanto a operação depende do dono.</p>
+            <p>A Zenon calcula quanto a empresa vale hoje, aponta o que pode aumentar esse valor e organiza a casa antes da negociação, para reduzir os argumentos de desconto.</p>
+            <p>Nem toda empresa precisa desse caminho. Mas uma empresa organizada tem mais opções quando o momento chegar: crescer, receber um sócio, planejar a saída de um sócio ou vender.</p>
+          </div>
+        </div>
+
+        <div class="fusoes-pillars-grid">
+          <a href="#stage-contato" class="pillar-col">
+            <span class="pillar-title">Valuation</span>
+            <span class="pillar-arrow">&rarr;</span>
+          </a>
+
+          <a href="#stage-contato" class="pillar-col">
+            <span class="pillar-title">Preparação para venda</span>
+            <span class="pillar-arrow">&rarr;</span>
+          </a>
+
+          <a href="#stage-contato" class="pillar-col">
+            <span class="pillar-title">Entrada de investidores</span>
+            <span class="pillar-arrow">&rarr;</span>
+          </a>
+
+          <a href="#stage-contato" class="pillar-col">
+            <span class="pillar-title">Fusões e aquisições</span>
+            <span class="pillar-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. NOSSO PRINCÍPIO -->
+    <section class="stage-principio" id="stage-principio" aria-label="Nosso Princípio">
+      <div class="site-container">
+        <div class="principio-grid">
+          <div class="principio-seal-col">
+            <!-- Selo Circular Oficial Zenon Arquitetura de Capital -->
+            <svg class="principio-seal" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="120" cy="120" r="114" stroke="#ECE8DD" stroke-width="2.5"/>
+              <circle cx="120" cy="120" r="92" stroke="#ECE8DD" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <!-- Brasão Arquitetônico no Centro -->
+              <path d="M88 100C88 82.327 102.327 68 120 68C137.673 68 152 82.327 152 100V152H88V100Z" stroke="#ECE8DD" stroke-width="2.5"/>
+              <line x1="120" y1="68" x2="120" y2="152" stroke="#ECE8DD" stroke-width="2"/>
+              <line x1="88" y1="100" x2="152" y2="100" stroke="#ECE8DD" stroke-width="2"/>
+              <line x1="98" y1="76" x2="142" y2="134" stroke="#ECE8DD" stroke-width="1.5"/>
+              <line x1="142" y1="76" x2="98" y2="134" stroke="#ECE8DD" stroke-width="1.5"/>
+              <!-- Texto Circular em Path -->
+              <path id="sealTextPath" d="M120 20 A100 100 0 1 1 119.9 20" fill="none"/>
+              <text fill="#ECE8DD" font-family="Montserrat" font-size="10.5" font-weight="600" letter-spacing="0.28em">
+                <textPath href="#sealTextPath" startOffset="0%">
+                  ZENON · ARQUITETURA DE CAPITAL · DISGRIÇÃO ·
+                </textPath>
+              </text>
+            </svg>
+          </div>
+
+          <div>
+            <span class="section-eyebrow gold">Nosso Princípio</span>
+            <h2 class="section-title-light">Discrição e confidencialidade</h2>
+            <div class="editorial-copy" style="margin-top: 24px;">
+              <p>Trabalhamos com números, contratos e decisões que afetam o patrimônio e o futuro da empresa.</p>
+              <p>Por isso, priorizamos iniciar o atendimento após a assinatura de um termo de confidencialidade, que vale para as informações compartilhadas desde a primeira conversa.</p>
+              <p>Confiança se constrói com consistência e transparência, e começa pela forma como tratamos o que você nos conta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. POR QUE A ZENON -->
+    <section class="stage-por-que" id="stage-por-que" aria-label="Por que a Zenon">
+      <div class="site-container">
+        <div>
+          <span class="section-eyebrow gold">Por que a Zenon</span>
+        </div>
+
+        <div class="two-col-grid" style="margin-top: 20px;">
+          <div class="editorial-copy">
+            <p>Empresas que crescem costumam acumular fornecedores: um banco para o crédito, um escritório para o tributário, uma contabilidade para os números. Cada um entrega a sua parte, e as partes nem sempre conversam.</p>
+            <p>A Zenon não nasceu para vender crédito, imposto ou M&A. Nasceu para estar ao lado do empresário na hora de decidir, com a mesma seriedade com que ele decide sobre o próprio negócio.</p>
+          </div>
+
+          <div class="editorial-copy">
+            <p>Esse é o nosso mandato: entender antes de recomendar, dizer a verdade mesmo quando ela não é a resposta que vende mais e conduzir cada decisão pensando no que vem depois.</p>
+            <p>O nome Zenon vem da ideia de iluminação: revelar o que está na sombra dentro da própria empresa, para que nenhum empresário precise decidir sozinho, nem no escuro.</p>
+          </div>
+        </div>
+
+        <div class="por-que-banner">
+          <p class="banner-sub">Tudo começa com uma conversa sobre o momento da sua empresa.</p>
+          <h2 class="banner-title">
+            Mais do que soluções,<br>
+            <span class="accent-word" style="color: var(--color-accent-gold); font-style: italic;">direção.</span>
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CONTATO & FORMULÁRIO -->
+    <section class="stage-contato" id="stage-contato" aria-label="Contato">
+      <div class="site-container">
+        <div class="contato-grid">
+          <div>
+            <span class="section-eyebrow terracotta">Contato</span>
+            <h2 class="section-title-dark">Conte o momento da sua empresa.</h2>
+            <div class="editorial-copy" style="margin-top: 24px;">
+              <p>Na primeira conversa, queremos entender o negócio e a decisão que está na mesa. A partir disso, conversamos sobre o diagnóstico e o próximo passo.</p>
+            </div>
+
+            <div class="contato-info-list">
+              <div class="contato-info-item">
+                <span class="info-label">Telefone</span>
+                <a href="tel:+554432182300" class="info-value">(44) 3218-2300</a>
+              </div>
+              <div class="contato-info-item">
+                <span class="info-label">E-mail</span>
+                <a href="mailto:contato@zenoncapital.com.br" class="info-value">contato@zenoncapital.com.br</a>
+              </div>
+              <div class="contato-info-item">
+                <span class="info-label">WhatsApp</span>
+                <a href="https://wa.me/5544999446650" target="_blank" rel="noopener noreferrer" class="info-value">(44) 99944-6650</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contato-form-card">
+            <form id="contactForm" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato.');">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="nome">Nome Completo</label>
+                  <input type="text" id="nome" name="nome" class="form-control" required placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" class="form-control" required placeholder="seu@email.com">
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="telefone">Telefone</label>
+                  <input type="tel" id="telefone" name="telefone" class="form-control" required placeholder="(00) 00000-0000">
+                </div>
+                <div class="form-group">
+                  <label for="assunto">Como podemos ajudar?</label>
+                  <select id="assunto" name="assunto" class="form-control" required>
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="diagnostico">Diagnóstico Zenon</option>
+                    <option value="reforma-tributaria">Adequação à Reforma Tributária</option>
+                    <option value="fusoes-aquisicoes">Fusões e Aquisições</option>
+                    <option value="credito">Linhas de Crédito e Antecipação</option>
+                    <option value="mercado-capitais">Acesso ao Mercado de Capitais</option>
+                    <option value="outro">Outro assunto</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" class="form-control" placeholder="Conte brevemente sobre o estágio atual do negócio..."></textarea>
+              </div>
+
+              <p class="form-terms">
+                Ao enviar este formulário, você declara estar ciente de que os dados informados serão utilizados para responder à sua solicitação, conforme nossa Política de Privacidade.
+              </p>
+
+              <button type="submit" class="btn btn-dark-solid form-btn-submit">Enviar mensagem</button>
+              <p class="prototype-notice">Protótipo: formulário sem integração de envio.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- 12. RODAPÉ INSTITUCIONAL -->
+  <footer class="site-footer">
+    <div class="site-container">
+      <div class="footer-top-grid">
+        <div>
+          <a href="#stage-hero" class="brand-logo" aria-label="Zenon Capital Início">
+            <svg class="brand-icon" viewBox="0 0 36 46" fill="none">
+              <path d="M1 18C1 8.61116 8.61116 1 18 1C27.3888 1 35 8.61116 35 18V45H1V18Z" stroke="#EEE9DF" stroke-width="2"/>
+              <path d="M18 1V45" stroke="#EEE9DF" stroke-width="1.5"/>
+              <path d="M1 18H35" stroke="#EEE9DF" stroke-width="1.5"/>
+              <path d="M7 6L29 30" stroke="#EEE9DF" stroke-width="1.5"/>
+              <path d="M29 6L7 30" stroke="#EEE9DF" stroke-width="1.5"/>
+            </svg>
+            <div class="brand-text">
+              <span class="brand-name">ZENON</span>
+              <span class="brand-sub">arquitetura de capital</span>
+            </div>
+          </a>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navegação</h4>
+          <ul class="footer-links-list">
+            <li><a href="#stage-hero" class="footer-link">Home</a></li>
+            <li><a href="#stage-quem-e" class="footer-link">Sobre</a></li>
+            <li><a href="#stage-frentes" class="footer-link">Soluções</a></li>
+            <li><a href="#stage-contato" class="footer-link">Contato</a></li>
+            <li><a href="#stage-contato" class="footer-link">Portal do Cliente</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Contato</h4>
+          <ul class="footer-links-list">
+            <li><span class="footer-link">(44) 3218-2300</span></li>
+            <li><a href="mailto:contato@zenoncapital.com.br" class="footer-link">contato@zenoncapital.com.br</a></li>
+            <li><span class="footer-link">Astorga, PR</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Redes</h4>
+          <ul class="footer-links-list">
+            <li><a href="#" class="footer-link" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="#" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="#" class="footer-link" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span class="footer-bottom-text">© 2026 Zenon Capital. Todos os direitos reservados.</span>
+        <span class="footer-bottom-text">Razão Social: Zenon Assessoria LTDA · CNPJ: 53.553.899/0001-36</span>
+        <span class="footer-bottom-text"><a href="privacidade.html">Política de Privacidade</a> · <a href="#">Cookies</a></span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
