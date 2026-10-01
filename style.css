@@ -612,7 +612,7 @@ body.mobile-nav-open {
 }
 
 /* ==========================================================================
-   2. HERO SECTION (100% Limpa, sem texto fantasma)
+   2. HERO SECTION (Desktop Full-Bleed Background Photography)
    ========================================================================== */
 .stage-hero {
   position: relative;
@@ -621,17 +621,57 @@ body.mobile-nav-open {
   display: flex;
   align-items: center;
   background-color: var(--color-predominant-dark);
-  background-image: none;
-  padding-top: 130px;
+  padding-top: 140px;
   padding-bottom: 70px;
   overflow: hidden;
 }
 
+/* Camada fotográfica de fundo cobrindo 100% da seção de ponta a ponta */
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  display: block;
+}
+
+/* Gradiente translúcido para garantir legibilidade dos textos mantendo o mar visível */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(15, 31, 48, 0.88) 0%,
+      rgba(15, 31, 48, 0.78) 32%,
+      rgba(15, 31, 48, 0.42) 55%,
+      rgba(15, 31, 48, 0.10) 75%,
+      rgba(15, 31, 48, 0.20) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(15, 31, 48, 0.50) 0%,
+      transparent 15%,
+      transparent 85%,
+      rgba(15, 31, 48, 0.85) 100%
+    );
+}
+
 .hero-container {
-  display: grid;
-  grid-template-columns: minmax(500px, 1.15fr) minmax(380px, 0.85fr);
-  align-items: center;
-  gap: 40px;
+  display: block;
   width: 100%;
   position: relative;
   z-index: 2;
@@ -641,48 +681,6 @@ body.mobile-nav-open {
   max-width: 640px;
   position: relative;
   z-index: 3;
-}
-
-/* Área visual proporcional do veleiro (Desktop) */
-.hero-visual {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  height: calc(100vh - 200px);
-  max-height: 720px;
-  min-height: 480px;
-  position: relative;
-}
-
-.hero-visual-frame {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.hero-sailboat-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: 100%;
-  object-fit: contain;
-  object-position: right center;
-  display: block;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
-}
-
-/* Gradiente independente para integração suave da fotografia */
-.hero-visual-mask {
-  position: absolute;
-  inset: -1px;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, #0F1F30 0%, rgba(15, 31, 48, 0.35) 12%, transparent 35%),
-    linear-gradient(180deg, #0F1F30 0%, transparent 6%, transparent 94%, #0F1F30 100%);
 }
 
 .hero-title {
@@ -1521,14 +1519,8 @@ textarea.form-control {
     gap: 16px;
   }
 
-  .hero-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-
-  .hero-visual {
-    height: 480px;
-    min-height: 380px;
+  .hero-content {
+    max-width: 520px;
   }
 
   .hero-title {
@@ -1582,8 +1574,8 @@ textarea.form-control {
     height: 30px;
   }
 
-  /* Oculta coluna de desktop e preserva hero mobile aprovado */
-  .hero-visual {
+  /* Oculta camada fotográfica desktop e preserva hero mobile aprovado */
+  .hero-bg-layer {
     display: none !important;
   }
 

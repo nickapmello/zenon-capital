@@ -114,8 +114,14 @@
   <main>
     <!-- 2. HERO / ABERTURA -->
     <section class="stage-hero" id="stage-hero" aria-label="Abertura">
+      <!-- Camada fotográfica de fundo Desktop (Full-Bleed de ponta a ponta) -->
+      <div class="hero-bg-layer" aria-hidden="true">
+        <img src="assets/sailboat-desktop.jpg" alt="" class="hero-bg-img" loading="eager">
+        <div class="hero-bg-overlay"></div>
+      </div>
+
       <div class="site-container hero-container">
-        <!-- Coluna da Esquerda: Conteúdo e Ações -->
+        <!-- Conteúdo e Ações (Alinhados à esquerda sobre a fotografia do mar) -->
         <div class="hero-content">
           <span class="section-eyebrow gold">Arquitetura de Capital</span>
           <h1 class="hero-title">
@@ -131,14 +137,6 @@
           <div class="hero-actions">
             <a href="#stage-contato" class="btn btn-solid-gold">Agendar diagnóstico</a>
             <a href="#stage-frentes" class="btn btn-outline-light">Conhecer nossas soluções</a>
-          </div>
-        </div>
-
-        <!-- Coluna da Direita (Desktop): Enquadramento Integral do Veleiro -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-visual-frame">
-            <img src="assets/sailboat-clean.jpg" alt="" class="hero-sailboat-img" loading="eager">
-            <div class="hero-visual-mask"></div>
           </div>
         </div>
       </div>
