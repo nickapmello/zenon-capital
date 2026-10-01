@@ -36,6 +36,78 @@
           <a href="#stage-contato" class="btn btn-solid-gold">Agendar Diagnóstico</a>
         </div>
       </nav>
+
+      <!-- Botão Hambúrguer Mobile -->
+      <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="hamburger-box" aria-hidden="true">
+          <span class="hamburger-bar hamburger-bar-1"></span>
+          <span class="hamburger-bar hamburger-bar-2"></span>
+          <span class="hamburger-bar hamburger-bar-3"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Painel de Navegação Móvel / Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Menu de navegação móvel" aria-hidden="true">
+      <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" tabindex="-1"></div>
+      <aside class="mobile-drawer-panel" id="mobileDrawerPanel">
+        <div class="mobile-drawer-header">
+          <a href="#stage-hero" class="mobile-drawer-logo" aria-label="Zenon Capital Início">
+            <img src="assets/logos/logo-header-completa-creme.png" alt="Zenon Capital" class="mobile-drawer-logo-img">
+          </a>
+          <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Fechar menu de navegação">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="mobile-drawer-body">
+          <nav class="mobile-drawer-nav" aria-label="Navegação móvel">
+            <ul class="mobile-nav-links">
+              <li><a href="#stage-hero" class="mobile-nav-link">Início</a></li>
+              <li><a href="#stage-quem-e" class="mobile-nav-link">Sobre</a></li>
+              <li><a href="#stage-frentes" class="mobile-nav-link">Soluções</a></li>
+              <li><a href="#stage-contato" class="mobile-nav-link">Contato</a></li>
+              <li class="mobile-nav-divider" aria-hidden="true"></li>
+              <li>
+                <a href="https://app.zenoncapital.com.br/auth" class="mobile-nav-link mobile-nav-portal" target="_blank" rel="noopener noreferrer" data-portal-link aria-label="Acessar Portal do Cliente">
+                  <span class="portal-text-wrap">
+                    <span class="portal-main-text">Portal do Cliente</span>
+                    <span class="portal-sub-text">Área Exclusiva de Investidores</span>
+                  </span>
+                  <span class="portal-badge" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="mobile-drawer-actions">
+            <a href="#stage-contato" class="btn btn-solid-gold mobile-drawer-cta">Agendar Diagnóstico</a>
+          </div>
+
+          <div class="mobile-drawer-footer">
+            <div class="mobile-footer-item">
+              <span class="mobile-footer-label">Telefone</span>
+              <a href="tel:4432182300" class="mobile-footer-val">(44) 3218-2300</a>
+            </div>
+            <div class="mobile-footer-item">
+              <span class="mobile-footer-label">E-mail</span>
+              <a href="mailto:contato@zenoncapital.com.br" class="mobile-footer-val">contato@zenoncapital.com.br</a>
+            </div>
+            <div class="mobile-footer-brand">
+              <span>Zenon Capital · Astorga, PR</span>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
   </header>
 
@@ -508,6 +580,7 @@
 
   <!-- Scripts -->
   <script src="assets/config.js"></script>
+  <script src="assets/navigation.js" defer></script>
   <script src="assets/contact.js" defer></script>
 </body>
 </html>
