@@ -1,0 +1,3 @@
+# Ignore raw mockups zip extract
+.mockups_v4/
+legacy_backup/

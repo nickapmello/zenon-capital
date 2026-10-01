@@ -1,0 +1,173 @@
++--------------------------------------------------------------------------------------------------------+
+| nav                                                                                                    |
+| [ico:logo-zenon] [t1: ZENON / arquitetura de capital]                                                  |
+|                                [lnk: HOME] [lnk: SOBRE] [lnk: SOLUÇÕES] [lnk: CONTATO]                |
+|                                | [lnk: PORTAL DO CLIENTE] | [btn: AGENDAR DIAGNÓSTICO]                 |
++--------------------------------------------------------------------------------------------------------+
+| hero                                                                                                   |
+| [t2: ARQUITETURA DE CAPITAL]                                                                           |
+| [h1: Mais do que soluções, direção.]                                                                   |
+| +-----------------------------------------------------------------------+                              |
+| | card-quote                                                            |                              |
+| | [t1: Somos quem realiza a Arquitetura de Capital das empresas:         |                              |
+| |   organizamos a estrutura que sustenta cada decisão do negócio.]      |                              |
+| +-----------------------------------------------------------------------+                              |
+| [btn: Agendar diagnóstico]   [btn2: Conhecer nossas soluções]                                          |
+|                                                                                 [img: hero-veleiro]    |
++--------------------------------------------------------------------------------------------------------+
+| section: quem-e-a-zenon                                                                                |
+| [t2: QUEM É A ZENON]                                                                                   |
+| [h2: Nascemos para olhar o negócio por inteiro.]                                                       |
+|                                 [t1: A Zenon nasceu da trajetória de profissionais das áreas financeira, |
+|                                      contábil e jurídica e do desejo de construir uma empresa mais      |
+|                                      estratégica e comprometida com o empresário.]                     |
+|                                 [t1: A Zenon não é uma consultoria: somos quem realiza a Arquitetura de|
+|                                      Capital das empresas, com contábil, societário, crédito, capital  |
+|                                      e tributário trabalhando no mesmo diagnóstico.]                    |
+|                                 [t1: Em vez de respostas soltas, o empresário recebe uma leitura       |
+|                                      conjunta, uma ordem clara de prioridades e alguém ao seu lado nas  |
+|                                      decisões que definem o futuro do negócio.]                         |
+| +----------------------------------------------------------------------------------------------------+ |
+| | bar-highlight                                                                                      | |
+| | [ico:espiral-zenon] [h3: Entender antes de recomendar.]                                            | |
+| +----------------------------------------------------------------------------------------------------+ |
++--------------------------------------------------------------------------------------------------------+
+| section: arquitetura-de-capital                                                                        |
+| [t2: ARQUITETURA DE CAPITAL]                                      [ico:degraus] [ico:pilares] [ico:arco]|
+| [h2: Enxergamos o capital de forma mais ampla.]                                                        |
+|                                 [t1: A Arquitetura de Capital organiza toda a estrutura financeira,    |
+|                                      tributária, contábil e empresarial que sustenta o crescimento de   |
+|                                      um negócio: como ele gera, usa, protege, capta e direciona seus   |
+|                                      recursos.]                                                        |
+|                                 [t1: Como numa construção, cada parte sustenta outra. Uma decisão de   |
+|                                      crédito muda o caixa. Uma mudança tributária muda a margem. Uma   |
+|                                      expansão muda a necessidade de capital. Olhar as peças juntas     |
+|                                      permite decidir na ordem certa.]                                  |
+|                                                                                                        |
+| [h2: Capital não é apenas dinheiro disponível.]                                                        |
+|                                 [t1: É uma estrutura viva, que sustenta a saúde e o futuro da          |
+|                                      empresa. Por isso começamos pela estrutura, não pelo produto.]     |
++--------------------------------------------------------------------------------------------------------+
+| section: para-quem-e                                                                                   |
+| [t2: PARA QUEM É]                                                                                      |
+| [h2: Para empresas que já cresceram e agora enfrentam decisões maiores.]                               |
+|                                 [t1: Atendemos empresários e tomadores de decisão de negócios maduros, |
+|                                      em sua maioria no Lucro Real ou no Lucro Presumido, com           |
+|                                      faturamento anual a partir de R$ 10 milhões.]                      |
+|                                 [t1: Nesse estágio, os desafios deixam de ser pontuais. O caixa sente o|
+|                                      crescimento, os tributos pesam na margem, e crédito, sócios e     |
+|                                      expansão passam a depender uns dos outros.]                       |
+|                                 [t1: Quem está nesse momento não procura mais um fornecedor. Procura   |
+|                                      clareza para decidir.]                                            |
+|                                                                                                        |
+| [t2: ENTRE ESSAS EMPRESAS, TAMBÉM ESTÃO:]                                                              |
+| +------------------+  +------------------+  +------------------+  +----------------------------------+ |
+| | arch-card-1      |  | arch-card-2      |  | arch-card-3      |  | arch-card-4                      | |
+| | [ico:degraus]    |  | [ico:curva]      |  | [ico:arco]       |  | [ico:leque]                      | |
+| | [t1: Empresas em |  | [t1: Empresas    |  | [t1: Empresas    |  | [t1: Empresários diante de       | |
+| | crescimento ou   |  | saindo do Simples|  | familiares]      |  | uma decisão estratégica]         | |
+| | expansão]        |  | Nacional]        |  |                  |  |                                  | |
+| +------------------+  +------------------+  +------------------+  +----------------------------------+ |
++--------------------------------------------------------------------------------------------------------+
+| section: frentes-de-atuacao                                                                            |
+| [t2: FRENTES DE ATUAÇÃO]                                                                               |
+| [h2: Oito frentes, um único ponto de partida.]                             [btn2: Conhecer nossas      |
+|                                                                                    soluções]           |
+| +-------------------------------------------------+  +-----------------------------------------------+ |
+| | [lnk: 01 Diagnóstico Zenon                   ->]|  | [lnk: 02 Adequação à nova Reforma Tributária ->]| |
+| | [lnk: 03 Fusões e Aquisições de Empresas     ->]|  | [lnk: 04 Inteligência tributária            ->]| |
+| | [lnk: 05 Linhas de crédito e antecipação     ->]|  | [lnk: 06 Mini banco proprietário            ->]| |
+| | [lnk: 07 Acesso ao mercado de capitais       ->]|  | [lnk: 08 Investimento e expansão            ->]| |
+| +-------------------------------------------------+  +-----------------------------------------------+ |
++--------------------------------------------------------------------------------------------------------+
+| section: diagnostico                                                                                   |
+|                                 [t1: O diagnóstico é o primeiro passo. Os times tributário, societário,|
+|                                      de crédito e de capital analisam a empresa ao mesmo tempo e trazem|
+|                                      à tona o que costuma ficar escondido entre uma área e outra:      |
+|                                      gargalos de caixa, oportunidades tributárias e estruturas         |
+|                                      desalinhadas.]                                                    |
+|                                 [t1: Como as análises acontecem juntas, uma descoberta informa a outra.|
+|                                      Uma oportunidade tributária pode mudar a leitura do caixa. Uma    |
+|                                      dívida cara pode mudar a prioridade de uma expansão.]             |
+|                                 [t1: A entrega é um documento único: o que cada área encontrou, o que  |
+|                                      resolver primeiro e por quê. A partir dele, você decide com       |
+|                                      liberdade se e como deseja seguir com a Zenon.]                   |
+|                                 [t2: Quando faz sentido:] [t1: antes de qualquer outra solução, para    |
+|                                      enxergar riscos e oportunidades com clareza.]                     |
+|                                 [t2: O que você leva:] [t1: um mapa do que precisa ser feito, em que   |
+|                                      ordem e por quê.]                                                 |
+| [h2: Diagnóstico Zenon]         [btn: Agendar diagnóstico]                                             |
+| [img: bg-rastro-agua]                                                                                  |
++--------------------------------------------------------------------------------------------------------+
+| section: fusoes-e-aquisicoes                                                                           |
+| [h2: Fusões e aquisições:       [t1: Comprar uma empresa, vender a sua, unir-se a um parceiro ou      |
+|  preparar antes de negociar.]        receber um sócio investidor são decisões que dependem do que a    |
+|                                      empresa mostra na mesa: números, contratos, passivos e o quanto a |
+|                                      operação depende do dono.]                                        |
+|                                 [t1: A Zenon calcula quanto a empresa vale hoje, aponta o que pode     |
+|                                      aumentar esse valor e organiza a casa antes da negociação, para   |
+|                                      reduzir os argumentos de desconto.]                               |
+|                                 [t1: Nem toda empresa precisa desse caminho. Mas uma empresa organizada|
+|                                      tem mais opções quando o momento chegar: crescer, receber um      |
+|                                      sócio, planejar a saída de um sócio ou vender.]                   |
+| +---------------------+  +---------------------+  +---------------------+  +-------------------------+ |
+| | [t1: Valuation   ->]|  | [t1: Preparação     |  | [t1: Entrada de     |  | [t1: Fusões e           | |
+| |                     |  | para venda       ->]|  | investidores     ->]|  | aquisições            ->]| |
+| +---------------------+  +---------------------+  +---------------------+  +-------------------------+ |
++--------------------------------------------------------------------------------------------------------+
+| section: nosso-principio                                                                               |
+|                                 [t2: NOSSO PRINCÍPIO]                                                  |
+|                                 [h2: Discrição e confidencialidade]                                    |
+| [ico:selo-circular-zenon]       [t1: Trabalhamos com números, contratos e decisões que afetam o         |
+|                                      patrimônio e o futuro da empresa.]                                |
+|                                 [t1: Por isso, priorizamos iniciar o atendimento após a assinatura de  |
+|                                      um termo de confidencialidade, que vale para as informações       |
+|                                      compartilhadas desde a primeira conversa.]                        |
+|                                 [t1: Confiança se constrói com consistência e transparência, e começa  |
+|                                      pela forma como tratamos o que você nos conta.]                   |
++--------------------------------------------------------------------------------------------------------+
+| section: por-que-a-zenon                                                                               |
+| [t2: POR QUE A ZENON]                                                                                  |
+| [t1: Empresas que crescem costumam acumular      | [t1: Esse é o nosso mandato: entender antes de       |
+|   fornecedores: um banco para o crédito, um      |   recomendar, dizer a verdade mesmo quando ela não  |
+|   escritório para o tributário, uma contabilidade|   é a resposta que vende mais e conduzir cada       |
+|   para os números. Cada um entrega a sua parte,  |   decisão pensando no que vem depois.]              |
+|   e as partes nem sempre conversam.]             | [t1: O nome Zenon vem da ideia de iluminação:       |
+| [t1: A Zenon não nasceu para vender crédito,     |   revelar o que está na sombra dentro da própria    |
+|   imposto ou M&A. Nasceu para estar ao lado do   |   empresa, para que nenhum empresário precise       |
+|   empresário na hora de decidir, com a mesma     |   decidir sozinho, nem no escuro.]                  |
+|   seriedade com que ele decide sobre o próprio   |                                                     |
+|   negócio.]                                      |                                                     |
+|                                                                                                        |
+| +----------------------------------------------------------------------------------------------------+ |
+| | cta-banner                                                                                         | |
+| | [t2: Tudo começa com uma conversa sobre o momento da sua empresa.]                                  | |
+| | [h1: Mais do que soluções, direção.]                                                               | |
+| +----------------------------------------------------------------------------------------------------+ |
+| [img: bg-reflexo-luz-mar]                                                                              |
++--------------------------------------------------------------------------------------------------------+
+| section: contato                                                                                       |
+| [t2: CONTATO]                                    +---------------------------------------------------+ |
+| [h2: Conte o momento da sua empresa.]            | card-form                                         | |
+| [t1: Na primeira conversa, queremos entender o   | [in: NOME COMPLETO]          [in: E-MAIL]         | |
+|   negócio e a decisão que está na mesa. A partir | [in: TELEFONE]               [in: COMO AJUDAR v]  | |
+|   disso, conversamos sobre o diagnóstico e o     | [in: MENSAGEM ..................................] | |
+|   próximo passo.]                                | [t3: Ao enviar este formulário, você declara...]  | |
+|                                                  | [btn: Enviar mensagem]                            | |
+| [t2: TELEFONE]  [t1: (44) 3218-2300]             | [t3: Protótipo: formulário sem integração...]     | |
+| [t2: E-MAIL]    [t1: contato@zenoncapital.com.br]+---------------------------------------------------+ |
+| [t2: WHATSAPP]  [t1: (44) 99944-6650]                                                                  |
++--------------------------------------------------------------------------------------------------------+
+| footer                                                                                                 |
+| [ico:logo-zenon]               [t2: NAVEGAÇÃO]       [t2: CONTATO]                 [t2: REDES]         |
+| [t1: ZENON                     [lnk: Home]           [t1: (44) 3218-2300]          [lnk: Instagram]    |
+|  arquitetura de capital]       [lnk: Sobre]          [t1: contato@zenoncapital...] [lnk: LinkedIn]     |
+|                                [lnk: Soluções]       [t1: Astorga, PR]             [lnk: Twitter]      |
+|                                [lnk: Contato]                                                          |
+|                                [lnk: Portal Cliente]                                                   |
+|                                                                                                        |
+| ------------------------------------------------------------------------------------------------------ |
+| [t3: © 2026 Zenon Capital. Todos os direitos reservados.]                                              |
+| [t3: Razão Social: Zenon Assessoria LTDA · CNPJ: 53.553.899/0001-36]                                   |
+| [lnk: Política de Privacidade · Cookies]                                                               |
++--------------------------------------------------------------------------------------------------------+
