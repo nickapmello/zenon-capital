@@ -396,22 +396,31 @@
           </div>
 
           <div class="contato-form-card">
-            <form id="contactForm" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato.');">
+            <!-- Painel de Status do Envio -->
+            <div id="formStatus" class="form-status" style="display: none;" role="alert" aria-live="polite"></div>
+
+            <form id="contactForm" novalidate>
+              <!-- Campo Oculto Anti-Spam (Honeypot) -->
+              <input type="text" name="_gotcha" id="_gotcha" tabindex="-1" autocomplete="off" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+
               <div class="form-grid-2">
                 <div class="form-group">
                   <label for="nome">Nome Completo</label>
-                  <input type="text" id="nome" name="nome" class="form-control" required placeholder="Seu nome">
+                  <input type="text" id="nome" name="nome" class="form-control" required placeholder="Seu nome" autocomplete="name">
+                  <span class="field-error" id="error-nome"></span>
                 </div>
                 <div class="form-group">
                   <label for="email">E-mail</label>
-                  <input type="email" id="email" name="email" class="form-control" required placeholder="seu@email.com">
+                  <input type="email" id="email" name="email" class="form-control" required placeholder="seu@email.com" autocomplete="email">
+                  <span class="field-error" id="error-email"></span>
                 </div>
               </div>
 
               <div class="form-grid-2">
                 <div class="form-group">
                   <label for="telefone">Telefone</label>
-                  <input type="tel" id="telefone" name="telefone" class="form-control" required placeholder="(00) 00000-0000">
+                  <input type="tel" id="telefone" name="telefone" class="form-control" required placeholder="(00) 00000-0000" autocomplete="tel">
+                  <span class="field-error" id="error-telefone"></span>
                 </div>
                 <div class="form-group">
                   <label for="assunto">Como podemos ajudar?</label>
@@ -424,20 +433,24 @@
                     <option value="mercado-capitais">Acesso ao Mercado de Capitais</option>
                     <option value="outro">Outro assunto</option>
                   </select>
+                  <span class="field-error" id="error-assunto"></span>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="mensagem">Mensagem</label>
                 <textarea id="mensagem" name="mensagem" class="form-control" placeholder="Conte brevemente sobre o estágio atual do negócio..."></textarea>
+                <span class="field-error" id="error-mensagem"></span>
               </div>
 
               <p class="form-terms">
                 Ao enviar este formulário, você declara estar ciente de que os dados informados serão utilizados para responder à sua solicitação, conforme nossa Política de Privacidade.
               </p>
 
-              <button type="submit" class="btn btn-dark-solid form-btn-submit">Enviar mensagem</button>
-              <p class="prototype-notice">Protótipo: formulário sem integração de envio.</p>
+              <button type="submit" id="submitBtn" class="btn btn-dark-solid form-btn-submit">
+                <span class="btn-text">Enviar mensagem</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
             </form>
           </div>
         </div>
@@ -492,5 +505,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="assets/contact.js" defer></script>
 </body>
 </html>

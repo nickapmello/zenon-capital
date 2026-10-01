@@ -1,0 +1,13 @@
+{
+  "name": "zenon-capital",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website institucional Zenon Capital - Arquitetura de Capital",
+  "scripts": {
+    "dev": "node execution/server.js",
+    "start": "node execution/server.js"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

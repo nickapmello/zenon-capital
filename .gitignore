@@ -1,3 +1,19 @@
 # Ignore raw mockups zip extract
 .mockups_v4/
 legacy_backup/
+
+# Environment Variables & Secrets
+.env
+.env*.local
+.env.local
+.env.production
+.env.development
+
+# Node & Package Managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vercel
+.vercel/

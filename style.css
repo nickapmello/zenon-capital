@@ -955,15 +955,110 @@ textarea.form-control {
   width: 100%;
   padding: 16px;
   font-size: 13px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.prototype-notice {
-  font-family: var(--font-sans);
-  font-size: 10.5px;
-  color: #8C99A6;
-  text-align: center;
-  margin-top: 14px;
+/* Erros de Validação dos Campos */
+.form-group.has-error .form-control {
+  border-color: #A93829;
+  background-color: #FFF9F8;
+  box-shadow: 0 0 0 3px rgba(169, 56, 41, 0.08);
 }
+
+.field-error {
+  display: none;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: #A93829;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+.form-group.has-error .field-error {
+  display: block;
+}
+
+/* Painel de Status do Formulário (Sucesso / Erro) */
+.form-status {
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
+
+.form-status.is-success {
+  background-color: #F1F6F3;
+  border: 1px solid #CDE2D8;
+  border-left: 4px solid #2B6E4F;
+  color: #174230;
+}
+
+.form-status.is-error {
+  background-color: #FDF6F5;
+  border: 1px solid #F1CECA;
+  border-left: 4px solid #A93829;
+  color: #6E2218;
+}
+
+.form-status-title {
+  font-weight: 700;
+  font-size: 13.5px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-status-details {
+  font-size: 12px;
+  opacity: 0.95;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.form-status-list {
+  margin: 8px 0 0 18px;
+  padding: 0;
+  font-size: 11.5px;
+}
+
+.form-status-list li {
+  margin-bottom: 4px;
+}
+
+/* Estado de Carregamento & Spinner */
+.btn-spinner {
+  display: none;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: btnSpin 0.7s linear infinite;
+}
+
+@keyframes btnSpin {
+  to { transform: rotate(360deg); }
+}
+
+.form-btn-submit.btn-loading {
+  opacity: 0.85;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-btn-submit.btn-loading .btn-spinner {
+  display: inline-block;
+}
+
 
 /* ==========================================================================
    12. RODAPÉ INSTITUCIONAL
