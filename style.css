@@ -192,41 +192,44 @@ body {
 .brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
   text-decoration: none;
-  color: var(--color-base-light);
+  line-height: 0;
 }
 
-.brand-icon {
-  width: 32px;
-  height: 42px;
-  flex-shrink: 0;
+.brand-logo-img {
+  height: 38px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.brand-text {
-  display: flex;
-  flex-direction: column;
+.brand-logo:hover .brand-logo-img {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
-.brand-name {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-base-light);
-  line-height: 1.1;
+.footer-brand-logo {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 0;
 }
 
-.brand-sub {
-  font-family: var(--font-sans);
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: lowercase;
-  color: rgba(236, 232, 221, 0.7);
-  margin-top: 2px;
+.footer-logo-img {
+  width: 135px;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
+
+.footer-brand-logo:hover .footer-logo-img {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
 
 .header-nav {
   display: flex;
@@ -771,6 +774,20 @@ body {
 .principio-seal {
   width: 260px;
   height: 260px;
+}
+
+.principio-seal-img {
+  width: 260px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.28));
+  transition: transform 0.4s var(--ease-cinematic);
+}
+
+.principio-seal-img:hover {
+  transform: scale(1.02) rotate(1deg);
 }
 
 /* ==========================================================================
