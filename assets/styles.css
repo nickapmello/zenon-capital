@@ -622,7 +622,7 @@ body.mobile-nav-open {
   align-items: center;
   background-color: var(--color-predominant-dark);
   background-image:
-    linear-gradient(90deg, #0F1F30 0%, #0F1F30 42%, rgba(15, 31, 48, 0.85) 60%, rgba(15, 31, 48, 0.2) 100%),
+    linear-gradient(90deg, #0F1F30 0%, #0F1F30 40%, rgba(15, 31, 48, 0.82) 58%, rgba(15, 31, 48, 0.15) 100%),
     url('../assets/sailboat-clean.jpg');
   background-position: right center;
   background-size: auto 100%;
@@ -1516,6 +1516,20 @@ textarea.form-control {
 
   .brand-logo-img {
     height: 30px;
+  }
+
+  .stage-hero {
+    min-height: 100svh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 110px;
+    padding-bottom: 50px;
+    background-image:
+      linear-gradient(180deg, rgba(15, 31, 48, 0.82) 0%, rgba(15, 31, 48, 0.88) 55%, rgba(15, 31, 48, 0.98) 100%),
+      url('../assets/sailboat-clean.jpg');
+    background-position: center right;
+    background-size: cover;
   }
 
   .hero-title {
