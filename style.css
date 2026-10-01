@@ -621,18 +621,68 @@ body.mobile-nav-open {
   display: flex;
   align-items: center;
   background-color: var(--color-predominant-dark);
-  background-image:
-    linear-gradient(90deg, #0F1F30 0%, #0F1F30 40%, rgba(15, 31, 48, 0.82) 58%, rgba(15, 31, 48, 0.15) 100%),
-    url('../assets/sailboat-clean.jpg');
-  background-position: right center;
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  padding-top: 140px;
-  padding-bottom: 80px;
+  background-image: none;
+  padding-top: 130px;
+  padding-bottom: 70px;
+  overflow: hidden;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: minmax(500px, 1.15fr) minmax(380px, 0.85fr);
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
-  max-width: 680px;
+  max-width: 640px;
+  position: relative;
+  z-index: 3;
+}
+
+/* Área visual proporcional do veleiro (Desktop) */
+.hero-visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 200px);
+  max-height: 720px;
+  min-height: 480px;
+  position: relative;
+}
+
+.hero-visual-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-sailboat-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  object-position: right center;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+
+/* Gradiente independente para integração suave da fotografia */
+.hero-visual-mask {
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, #0F1F30 0%, rgba(15, 31, 48, 0.35) 12%, transparent 35%),
+    linear-gradient(180deg, #0F1F30 0%, transparent 6%, transparent 94%, #0F1F30 100%);
 }
 
 .hero-title {
@@ -1471,6 +1521,20 @@ textarea.form-control {
     gap: 16px;
   }
 
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .hero-visual {
+    height: 480px;
+    min-height: 380px;
+  }
+
+  .hero-title {
+    font-size: 52px;
+  }
+
   .two-col-grid,
   .diagnostico-grid,
   .principio-grid,
@@ -1518,6 +1582,15 @@ textarea.form-control {
     height: 30px;
   }
 
+  /* Oculta coluna de desktop e preserva hero mobile aprovado */
+  .hero-visual {
+    display: none !important;
+  }
+
+  .hero-container {
+    display: block !important;
+  }
+
   .stage-hero {
     min-height: 100svh;
     min-height: 100vh;
@@ -1525,11 +1598,17 @@ textarea.form-control {
     align-items: center;
     padding-top: 110px;
     padding-bottom: 50px;
+    background-color: var(--color-predominant-dark);
     background-image:
       linear-gradient(180deg, rgba(15, 31, 48, 0.82) 0%, rgba(15, 31, 48, 0.88) 55%, rgba(15, 31, 48, 0.98) 100%),
       url('../assets/sailboat-clean.jpg');
     background-position: center right;
     background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .hero-content {
+    max-width: 100%;
   }
 
   .hero-title {
