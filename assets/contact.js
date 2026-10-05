@@ -22,6 +22,105 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let isSubmitting = false;
 
+  // --- 0. Preenchimento Automático do Serviço Escolhido no Formulário ---
+  function selectService(serviceKey) {
+    if (!fields.assunto || !serviceKey) return false;
+
+    const normalizedKey = String(serviceKey).trim().toLowerCase();
+
+    // Mapeamento canônico de chaves e aliases para o valor exato da opção
+    const aliasMap = {
+      'diagnostico': 'diagnostico',
+      'diagnostico-zenon': 'diagnostico',
+      'reforma-tributaria': 'reforma-tributaria',
+      'reforma': 'reforma-tributaria',
+      'adequacao-reforma': 'reforma-tributaria',
+      'fusoes-aquisicoes': 'fusoes-aquisicoes',
+      'fusoes': 'fusoes-aquisicoes',
+      'm-and-a': 'fusoes-aquisicoes',
+      'valuation': 'fusoes-aquisicoes',
+      'inteligencia-tributaria': 'inteligencia-tributaria',
+      'inteligencia': 'inteligencia-tributaria',
+      'credito': 'credito',
+      'credito-antecipacao': 'credito',
+      'linhas-credito': 'credito',
+      'mini-banco': 'mini-banco',
+      'mini-banco-proprietario': 'mini-banco',
+      'mercado-capitais': 'mercado-capitais',
+      'mercado-de-capitais': 'mercado-capitais',
+      'investimento-expansao': 'investimento-expansao',
+      'investimento': 'investimento-expansao',
+      'outro': 'outro'
+    };
+
+    const targetVal = aliasMap[normalizedKey] || normalizedKey;
+    const optionExists = Array.from(fields.assunto.options).some(opt => opt.value === targetVal);
+
+    if (optionExists) {
+      fields.assunto.value = targetVal;
+      clearFieldError('assunto');
+
+      // Micro-interação visual: feedback sutil dourado no campo
+      fields.assunto.classList.remove('field-highlight');
+      void fields.assunto.offsetWidth; // Força repaint
+      fields.assunto.classList.add('field-highlight');
+      setTimeout(() => {
+        fields.assunto.classList.remove('field-highlight');
+      }, 1600);
+
+      fields.assunto.dispatchEvent(new Event('change', { bubbles: true }));
+      return true;
+    }
+    return false;
+  }
+
+  // Intercepta cliques em links com atributo data-service ou com parâmetros na URL
+  document.addEventListener('click', (e) => {
+    const serviceLink = e.target.closest('a[data-service], a[href*="servico="], a[href*="assunto="]');
+    if (!serviceLink) return;
+
+    let service = serviceLink.getAttribute('data-service');
+    if (!service) {
+      try {
+        const url = new URL(serviceLink.href, window.location.origin);
+        service = url.searchParams.get('servico') || url.searchParams.get('assunto');
+      } catch {
+        const match = serviceLink.href.match(/[?&](servico|assunto)=([^&#]+)/);
+        if (match) service = match[2];
+      }
+    }
+
+    if (service) {
+      selectService(service);
+    }
+  });
+
+  // Lê parâmetros da URL ao carregar ou trocar hash (suporta ?servico=... e #stage-contato?servico=...)
+  function checkUrlServiceParams() {
+    let service = null;
+
+    if (window.location.search) {
+      const params = new URLSearchParams(window.location.search);
+      service = params.get('servico') || params.get('assunto');
+    }
+
+    if (!service && window.location.hash) {
+      const hash = window.location.hash;
+      const queryIdx = hash.indexOf('?');
+      if (queryIdx !== -1) {
+        const params = new URLSearchParams(hash.substring(queryIdx));
+        service = params.get('servico') || params.get('assunto');
+      }
+    }
+
+    if (service) {
+      selectService(service);
+    }
+  }
+
+  checkUrlServiceParams();
+  window.addEventListener('hashchange', checkUrlServiceParams);
+
   // --- 1. Máscara Inteligente de Telefone (DDD + 8 ou 9 dígitos) ---
   if (fields.telefone) {
     fields.telefone.addEventListener('input', (e) => {

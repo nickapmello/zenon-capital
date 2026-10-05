@@ -5,10 +5,17 @@ const RECEIVER_EMAIL = process.env.CONTACT_RECEIVER_EMAIL || 'contato@zenoncapit
 
 const VALID_ASSUNTOS = {
   'diagnostico': 'Diagnóstico Zenon',
+  'diagnostico-zenon': 'Diagnóstico Zenon',
   'reforma-tributaria': 'Adequação à Reforma Tributária',
+  'reforma': 'Adequação à Reforma Tributária',
   'fusoes-aquisicoes': 'Fusões e Aquisições',
+  'fusoes': 'Fusões e Aquisições',
+  'inteligencia-tributaria': 'Inteligência Tributária',
   'credito': 'Linhas de Crédito e Antecipação',
+  'credito-antecipacao': 'Linhas de Crédito e Antecipação',
+  'mini-banco': 'Mini Banco Proprietário',
   'mercado-capitais': 'Acesso ao Mercado de Capitais',
+  'investimento-expansao': 'Investimento e Expansão',
   'outro': 'Outro assunto'
 };
 

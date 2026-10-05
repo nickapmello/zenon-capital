@@ -1312,6 +1312,13 @@ body.mobile-nav-open {
   box-shadow: 0 0 0 3px rgba(23, 45, 68, 0.08);
 }
 
+.form-control.field-highlight {
+  border-color: var(--color-accent-gold) !important;
+  background-color: #FFFDF9 !important;
+  box-shadow: 0 0 0 3px rgba(199, 150, 98, 0.28) !important;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
 textarea.form-control {
   resize: vertical;
   min-height: 120px;
