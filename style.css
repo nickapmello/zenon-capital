@@ -1319,6 +1319,10 @@ body.mobile-nav-open {
   transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
 }
 
+#cookies {
+  scroll-margin-top: 120px;
+}
+
 textarea.form-control {
   resize: vertical;
   min-height: 120px;

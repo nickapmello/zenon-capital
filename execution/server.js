@@ -70,7 +70,10 @@ const server = http.createServer((req, res) => {
 
   if (reqUrl === '/') reqUrl = '/index.html';
   
-  const filePath = path.join(ROOT_DIR, reqUrl);
+  let filePath = path.join(ROOT_DIR, reqUrl);
+  if (!fs.existsSync(filePath) && fs.existsSync(filePath + '.html')) {
+    filePath += '.html';
+  }
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
