@@ -222,6 +222,9 @@ module.exports = async (req, res) => {
   if (hasResend) {
     try {
       const fromEmail = process.env.RESEND_FROM || 'Zenon Capital <onboarding@resend.dev>';
+      let usedFallback = false;
+      let effectiveRecipient = RECEIVER_EMAIL;
+
       let resendResponse = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
@@ -242,8 +245,10 @@ module.exports = async (req, res) => {
 
       // Tratamento inteligente caso o domínio corporativo ainda não tenha sido verificado no painel da Resend
       if (!resendResponse.ok && resendResponse.status === 403 && resendData.message && resendData.message.includes('only send testing emails to your own email address')) {
+        usedFallback = true;
         const match = resendData.message.match(/\(([^)]+)\)/);
         const fallbackEmail = match ? match[1] : 'nicolas.mello@edu.unifil.br';
+        effectiveRecipient = fallbackEmail;
 
         const advisoryNotice = `
           <div style="background-color: #FFF8E7; border-left: 4px solid #C79662; padding: 14px 18px; margin-bottom: 24px; font-family: sans-serif; font-size: 13px; color: #6F3C2C; border-radius: 2px; line-height: 1.5;">
@@ -276,10 +281,17 @@ module.exports = async (req, res) => {
         throw new Error(resendData.message || resendData.error || `Erro HTTP ${resendResponse.status} na API do Resend`);
       }
 
+      const reqId = req.headers['x-vercel-id'] || `req_${Date.now()}`;
       res.status(200).json({
         success: true,
         message: 'Sua mensagem foi enviada com sucesso! Nossa equipe entrará em contato em breve.',
-        id: resendData.id
+        id: resendData.id,
+        requestId: reqId,
+        provider: 'resend',
+        deliveryStatus: resendData.id ? 'sent_to_provider' : 'unknown',
+        targetRecipient: RECEIVER_EMAIL,
+        actualRecipient: effectiveRecipient,
+        mode: usedFallback ? 'sandbox_fallback' : 'production_direct'
       });
       return;
     } catch (err) {

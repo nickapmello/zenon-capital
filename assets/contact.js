@@ -211,8 +211,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Validação Telefone
     const rawPhone = fields.telefone ? fields.telefone.value.replace(/\D/g, '') : '';
-    if (!rawPhone || rawPhone.length < 10) {
-      setFieldError('telefone', 'Por favor, informe um telefone com DDD.');
+    if (!rawPhone || rawPhone.length < 10 || rawPhone.length > 11) {
+      setFieldError('telefone', 'Por favor, informe um telefone válido com DDD (10 ou 11 dígitos).');
       isValid = false;
       if (!firstInvalid) firstInvalid = fields.telefone;
     } else {
@@ -227,6 +227,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!firstInvalid) firstInvalid = fields.assunto;
     } else {
       clearFieldError('assunto');
+    }
+
+    // Validação Mensagem (se informada, mínimo 5 caracteres)
+    const mensagemVal = fields.mensagem ? fields.mensagem.value.trim() : '';
+    if (mensagemVal && mensagemVal.length < 5) {
+      setFieldError('mensagem', 'Se informada, a mensagem deve conter ao menos 5 caracteres.');
+      isValid = false;
+      if (!firstInvalid) firstInvalid = fields.mensagem;
+    } else {
+      clearFieldError('mensagem');
     }
 
     if (!isValid) {
