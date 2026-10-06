@@ -221,9 +221,10 @@ module.exports = async (req, res) => {
   // 1. Provedor Resend (Padrão Oficial Recomendado na Vercel)
   if (hasResend) {
     try {
-      const fromEmail = process.env.RESEND_FROM || 'Zenon Capital <onboarding@resend.dev>';
+      let fromEmail = process.env.RESEND_FROM || 'Zenon Capital <onboarding@resend.dev>';
       let usedFallback = false;
       let effectiveRecipient = RECEIVER_EMAIL;
+      let domainWarning = null;
 
       let resendResponse = await fetch('https://api.resend.com/emails', {
         method: 'POST',
@@ -243,8 +244,32 @@ module.exports = async (req, res) => {
 
       let resendData = await resendResponse.json();
 
-      // Tratamento inteligente caso o domínio corporativo ainda não tenha sido verificado no painel da Resend
-      if (!resendResponse.ok && resendResponse.status === 403 && resendData.message && resendData.message.includes('only send testing emails to your own email address')) {
+      // Caso 1: Se o remetente (from) usar domínio não verificado (@zenoncapital.com.br)
+      if (!resendResponse.ok && resendData.message && resendData.message.includes('domain is not verified')) {
+        domainWarning = resendData.message;
+        fromEmail = 'Zenon Capital <onboarding@resend.dev>';
+
+        resendResponse = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${resendApiKey.trim()}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: fromEmail,
+            to: [RECEIVER_EMAIL],
+            reply_to: trimmedEmail,
+            subject: `[Contato Site] ${assuntoLabel} — ${trimmedNome}`,
+            html: emailHtml,
+            text: emailText
+          })
+        });
+
+        resendData = await resendResponse.json();
+      }
+
+      // Caso 2: Se o destinatário corporativo (to) for bloqueado por restrição de sandbox da conta Resend
+      if (!resendResponse.ok && (resendResponse.status === 403 || resendResponse.status === 400) && resendData.message && resendData.message.includes('only send testing emails to your own email address')) {
         usedFallback = true;
         const match = resendData.message.match(/\(([^)]+)\)/);
         const fallbackEmail = match ? match[1] : 'nicolas.mello@edu.unifil.br';
@@ -252,7 +277,7 @@ module.exports = async (req, res) => {
 
         const advisoryNotice = `
           <div style="background-color: #FFF8E7; border-left: 4px solid #C79662; padding: 14px 18px; margin-bottom: 24px; font-family: sans-serif; font-size: 13px; color: #6F3C2C; border-radius: 2px; line-height: 1.5;">
-            <strong>Aviso de Configuração Resend:</strong> Esta mensagem foi entregue em <strong>${fallbackEmail}</strong> porque o domínio corporativo <code>zenoncapital.com.br</code> ainda está pendente de verificação DNS em <a href="https://resend.com/domains" target="_blank" style="color: #6F3C2C; font-weight: 700;">resend.com/domains</a>. Assim que verificado, as mensagens serão entregues automaticamente em <code>${RECEIVER_EMAIL}</code>.
+            <strong>Aviso de Configuração Resend (Homologação):</strong> Esta mensagem foi entregue em <strong>${fallbackEmail}</strong> porque o domínio corporativo <code>zenoncapital.com.br</code> ainda está pendente de verificação DNS em <a href="https://resend.com/domains" target="_blank" style="color: #6F3C2C; font-weight: 700;">resend.com/domains</a>. Assim que verificado, as mensagens serão entregues automaticamente em <code>${RECEIVER_EMAIL}</code>.
           </div>
         `;
 
@@ -265,7 +290,7 @@ module.exports = async (req, res) => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            from: fromEmail,
+            from: 'Zenon Capital <onboarding@resend.dev>',
             to: [fallbackEmail],
             reply_to: trimmedEmail,
             subject: `[Contato Site] ${assuntoLabel} — ${trimmedNome}`,
@@ -291,7 +316,8 @@ module.exports = async (req, res) => {
         deliveryStatus: resendData.id ? 'sent_to_provider' : 'unknown',
         targetRecipient: RECEIVER_EMAIL,
         actualRecipient: effectiveRecipient,
-        mode: usedFallback ? 'sandbox_fallback' : 'production_direct'
+        mode: usedFallback ? 'sandbox_fallback' : 'production_direct',
+        domainNotice: domainWarning || (usedFallback ? 'zenoncapital.com.br pendente de verificação no Resend' : 'verificado')
       });
       return;
     } catch (err) {
