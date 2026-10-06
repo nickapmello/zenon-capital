@@ -16,13 +16,14 @@
   <!-- Textura Global de Grão Analógico -->
   <div class="noise-overlay" aria-hidden="true"></div>
 
-  <!-- 1. TOPBAR & NAVEGAÇÃO -->
-  <header class="site-header">
+  <!-- 1. TOPBAR & NAVEGAÇÃO PERSISTENTE (FIXO) -->
+  <header class="site-header" id="siteHeader">
     <div class="site-container header-inner">
       <a href="#stage-hero" class="brand-logo" aria-label="Zenon Capital Início">
         <img src="assets/logos/logo-header-completa-creme.png" alt="Zenon Capital — Arquitetura de Capital" class="brand-logo-img">
       </a>
 
+      <!-- Navegação Principal Desktop -->
       <nav class="header-nav" aria-label="Navegação principal">
         <ul class="nav-links">
           <li><a href="#stage-hero" class="nav-link">Home</a></li>
@@ -31,20 +32,24 @@
           <li><a href="#stage-contato" class="nav-link">Contato</a></li>
         </ul>
         <div class="nav-divider" aria-hidden="true"></div>
-        <a href="https://app.zenoncapital.com.br/auth" class="nav-portal" target="_blank" rel="noopener noreferrer" data-portal-link aria-label="Portal do Cliente">Portal do Cliente</a>
+        <a href="https://app.zenoncapital.com.br/auth" class="btn btn-header-outline" target="_blank" rel="noopener noreferrer" data-portal-link aria-label="Portal do Cliente">Portal do Cliente</a>
         <div class="header-cta">
-          <a href="#stage-contato" class="btn btn-solid-gold" data-service="diagnostico">Agendar Diagnóstico</a>
+          <a href="#stage-contato" class="btn btn-solid-gold btn-header-cta" data-service="diagnostico">Agendar Diagnóstico</a>
         </div>
       </nav>
 
-      <!-- Botão Hambúrguer Mobile -->
-      <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileDrawer">
-        <span class="hamburger-box" aria-hidden="true">
-          <span class="hamburger-bar hamburger-bar-1"></span>
-          <span class="hamburger-bar hamburger-bar-2"></span>
-          <span class="hamburger-bar hamburger-bar-3"></span>
-        </span>
-      </button>
+      <!-- Ações Tablet / Mobile no Header Fixo -->
+      <div class="header-mobile-bar">
+        <a href="https://app.zenoncapital.com.br/auth" class="btn btn-header-outline tablet-portal-btn" target="_blank" rel="noopener noreferrer" data-portal-link aria-label="Portal do Cliente">Portal do Cliente</a>
+        <a href="#stage-contato" class="btn btn-solid-gold header-mobile-cta" data-service="diagnostico">Agendar</a>
+        <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-box" aria-hidden="true">
+            <span class="hamburger-bar hamburger-bar-1"></span>
+            <span class="hamburger-bar hamburger-bar-2"></span>
+            <span class="hamburger-bar hamburger-bar-3"></span>
+          </span>
+        </button>
+      </div>
     </div>
 
     <!-- Painel de Navegação Móvel / Drawer -->
@@ -66,7 +71,7 @@
         <div class="mobile-drawer-body">
           <nav class="mobile-drawer-nav" aria-label="Navegação móvel">
             <ul class="mobile-nav-links">
-              <li><a href="#stage-hero" class="mobile-nav-link">Início</a></li>
+              <li><a href="#stage-hero" class="mobile-nav-link">Home</a></li>
               <li><a href="#stage-quem-e" class="mobile-nav-link">Sobre</a></li>
               <li><a href="#stage-frentes" class="mobile-nav-link">Soluções</a></li>
               <li><a href="#stage-contato" class="mobile-nav-link">Contato</a></li>
@@ -135,8 +140,8 @@
           </div>
 
           <div class="hero-actions">
-            <a href="#stage-contato" class="btn btn-solid-gold" data-service="diagnostico">Agendar diagnóstico</a>
-            <a href="#stage-frentes" class="btn btn-outline-light">Conhecer nossas soluções</a>
+            <a href="#stage-contato" class="btn btn-solid-gold hero-btn" data-service="diagnostico">Agendar diagnóstico</a>
+            <a href="#stage-frentes" class="btn btn-outline-light hero-btn">Conhecer nossas soluções</a>
           </div>
         </div>
       </div>
@@ -171,30 +176,36 @@
     <!-- 4. ARQUITETURA DE CAPITAL -->
     <section class="stage-arquitetura" id="stage-arquitetura" aria-label="Arquitetura de Capital">
       <div class="site-container">
-        <div class="two-col-grid">
-          <div>
+        <div class="two-col-grid arch-main-grid">
+          <div class="arch-col-left">
             <span class="section-eyebrow gold">Arquitetura de Capital</span>
             <h2 class="section-title-light">Enxergamos o capital de forma mais ampla.</h2>
+
+            <div class="arch-icons-row" aria-label="Pilares da Arquitetura de Capital">
+              <div class="arch-icon-item">
+                <svg class="arch-symbol-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 20H8V15H13V10H18V5H21" stroke="#C79662" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="arch-icon-caption">ESTRUTURA</span>
+              </div>
+              <div class="arch-icon-item">
+                <svg class="arch-symbol-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <line x1="6" y1="4" x2="6" y2="20" stroke="#C79662" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="12" y1="4" x2="12" y2="20" stroke="#C79662" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="18" y1="4" x2="18" y2="20" stroke="#C79662" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="arch-icon-caption">SUSTENTAÇÃO</span>
+              </div>
+              <div class="arch-icon-item">
+                <svg class="arch-symbol-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 20V12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12V20" stroke="#C79662" stroke-width="2"/>
+                </svg>
+                <span class="arch-icon-caption">PROTEÇÃO</span>
+              </div>
+            </div>
           </div>
 
-          <div>
-            <div class="arch-symbols">
-              <!-- Degraus -->
-              <svg class="arch-symbol-icon" viewBox="0 0 24 24" fill="none">
-                <path d="M3 20H8V15H13V10H18V5H21" stroke="#C79662" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <!-- Pilares -->
-              <svg class="arch-symbol-icon" viewBox="0 0 24 24" fill="none">
-                <line x1="6" y1="4" x2="6" y2="20" stroke="#C79662" stroke-width="2" stroke-linecap="round"/>
-                <line x1="12" y1="4" x2="12" y2="20" stroke="#C79662" stroke-width="2" stroke-linecap="round"/>
-                <line x1="18" y1="4" x2="18" y2="20" stroke="#C79662" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <!-- Arco -->
-              <svg class="arch-symbol-icon" viewBox="0 0 24 24" fill="none">
-                <path d="M5 20V12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12V20" stroke="#C79662" stroke-width="2"/>
-              </svg>
-            </div>
-
+          <div class="arch-col-right">
             <div class="editorial-copy">
               <p>A Arquitetura de Capital organiza toda a estrutura financeira, tributária, contábil e empresarial que sustenta o crescimento de um negócio: como ele gera, usa, protege, capta e direciona seus recursos.</p>
               <p>Como numa construção, cada parte sustenta outra. Uma decisão de crédito muda o caixa. Uma mudança tributária muda a margem. Uma expansão muda a necessidade de capital. Olhar as peças juntas permite decidir na ordem certa.</p>
@@ -273,51 +284,51 @@
     <section class="stage-frentes" id="stage-frentes" aria-label="Frentes de atuação">
       <div class="site-container">
         <div class="frentes-header">
-          <div>
+          <div class="frentes-header-text">
             <span class="section-eyebrow gold">Frentes de Atuação</span>
             <h2 class="section-title-light">Oito frentes, um único ponto de partida.</h2>
           </div>
-          <a href="#stage-contato" class="btn btn-light-solid">Conhecer nossas soluções</a>
+          <a href="#stage-contato" class="btn btn-light-solid frentes-cta-btn">Conhecer nossas soluções</a>
         </div>
 
         <div class="frentes-grid">
           <a href="#stage-diagnostico" class="frente-item">
-            <span class="frente-name">01 Diagnóstico Zenon</span>
+            <span class="frente-info"><span class="frente-num">01</span><span class="frente-name">Diagnóstico Zenon</span></span>
             <span class="frente-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
           <a href="#stage-contato" class="frente-item" data-service="reforma-tributaria">
-            <span class="frente-name">02 Adequação à nova Reforma Tributária</span>
+            <span class="frente-info"><span class="frente-num">02</span><span class="frente-name">Adequação à nova Reforma Tributária</span></span>
             <span class="frente-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
           <a href="#stage-fusoes" class="frente-item">
-            <span class="frente-name">03 Fusões e Aquisições de Empresas</span>
+            <span class="frente-info"><span class="frente-num">03</span><span class="frente-name">Fusões e Aquisições de Empresas</span></span>
             <span class="frente-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
           <a href="#stage-contato" class="frente-item" data-service="inteligencia-tributaria">
-            <span class="frente-name">04 Inteligência tributária</span>
+            <span class="frente-info"><span class="frente-num">04</span><span class="frente-name">Inteligência tributária</span></span>
             <span class="frente-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
           <a href="#stage-contato" class="frente-item" data-service="credito">
-            <span class="frente-name">05 Linhas de crédito e antecipação</span>
+            <span class="frente-info"><span class="frente-num">05</span><span class="frente-name">Linhas de crédito e antecipação</span></span>
             <span class="frente-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
           <a href="#stage-contato" class="frente-item" data-service="mini-banco">
-            <span class="frente-name">06 Mini banco proprietário</span>
+            <span class="frente-info"><span class="frente-num">06</span><span class="frente-name">Mini banco proprietário</span></span>
             <span class="frente-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
           <a href="#stage-contato" class="frente-item" data-service="mercado-capitais">
-            <span class="frente-name">07 Acesso ao mercado de capitais</span>
+            <span class="frente-info"><span class="frente-num">07</span><span class="frente-name">Acesso ao mercado de capitais</span></span>
             <span class="frente-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
           <a href="#stage-contato" class="frente-item" data-service="investimento-expansao">
-            <span class="frente-name">08 Investimento e expansão</span>
+            <span class="frente-info"><span class="frente-num">08</span><span class="frente-name">Investimento e expansão</span></span>
             <span class="frente-arrow" aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -328,17 +339,18 @@
     <section class="stage-diagnostico" id="stage-diagnostico" aria-label="Diagnóstico Zenon">
       <div class="site-container">
         <div class="diagnostico-grid">
-          <div>
-            <h2 class="diagnostico-headline">
-              Diagnóstico<br>
-              Zenon
-            </h2>
+          <div class="diagnostico-photo-col">
+            <img src="assets/clean-water-wake.jpg" alt="Textura de mar e água profunda" class="diagnostico-photo" loading="lazy">
           </div>
 
-          <div class="diagnostico-content">
-            <p>O diagnóstico é o primeiro passo. Os times tributário, societário, de crédito e de capital analisam a empresa ao mesmo tempo e trazem à tona o que costuma ficar escondido entre uma área e outra: gargalos de caixa, oportunidades tributárias e estruturas desalinhadas.</p>
-            <p>Como as análises acontecem juntas, uma descoberta informa a outra. Uma oportunidade tributária pode mudar a leitura do caixa. Uma dívida cara pode mudar a prioridade de uma expansão.</p>
-            <p>A entrega é um documento único: o que cada área encontrou, o que resolver primeiro e por quê. A partir dele, você decide com liberdade se e como deseja seguir com a Zenon.</p>
+          <div class="diagnostico-content-col">
+            <h2 class="diagnostico-headline">Diagnóstico Zenon</h2>
+
+            <div class="editorial-copy">
+              <p>O diagnóstico é o primeiro passo. Os times tributário, societário, de crédito e de capital analisam a empresa ao mesmo tempo e trazem à tona o que costuma ficar escondido entre uma área e outra: gargalos de caixa, oportunidades tributárias e estruturas desalinhadas.</p>
+              <p>Como as análises acontecem juntas, uma descoberta informa a outra. Uma oportunidade tributária pode mudar a leitura do caixa. Uma dívida cara pode mudar a prioridade de uma expansão.</p>
+              <p>A entrega é um documento único: o que cada área encontrou, o que resolver primeiro e por quê. A partir dele, você decide com liberdade se e como deseja seguir com a Zenon.</p>
+            </div>
 
             <div class="diagnostico-specs">
               <div class="spec-line">
@@ -349,8 +361,8 @@
               </div>
             </div>
 
-            <div>
-              <a href="#stage-contato" class="btn btn-solid-gold" data-service="diagnostico">Agendar diagnóstico</a>
+            <div class="diagnostico-cta-wrap">
+              <a href="#stage-contato" class="btn btn-solid-gold diagnostico-btn" data-service="diagnostico">Agendar diagnóstico</a>
             </div>
           </div>
         </div>
@@ -401,13 +413,13 @@
       <div class="site-container">
         <div class="principio-grid">
           <div class="principio-seal-col">
-            <!-- Selo Circular Oficial Zenon Arquitetura de Capital -->
-            <img src="assets/logos/selo-circular-creme.png" alt="Selo Oficial Zenon Capital — Arquitetura de Capital" class="principio-seal-img" loading="lazy">
+            <!-- Selo Circular Oficial Zenon Arquitetura de Capital em Azul Marinho -->
+            <img src="assets/logos/selo-circular-azul.png" alt="Selo Oficial Zenon Capital — Arquitetura de Capital" class="principio-seal-img" loading="lazy">
           </div>
 
-          <div>
-            <span class="section-eyebrow gold">Nosso Princípio</span>
-            <h2 class="section-title-light">Discrição e confidencialidade</h2>
+          <div class="principio-content-col">
+            <span class="section-eyebrow terracotta">Nosso Princípio</span>
+            <h2 class="section-title-dark">Discrição e confidencialidade</h2>
             <div class="editorial-copy" style="margin-top: 24px;">
               <p>Trabalhamos com números, contratos e decisões que afetam o patrimônio e o futuro da empresa.</p>
               <p>Por isso, priorizamos iniciar o atendimento após a assinatura de um termo de confidencialidade, que vale para as informações compartilhadas desde a primeira conversa.</p>
@@ -425,7 +437,7 @@
           <span class="section-eyebrow gold">Por que a Zenon</span>
         </div>
 
-        <div class="two-col-grid" style="margin-top: 20px;">
+        <div class="two-col-grid por-que-text-grid" style="margin-top: 20px;">
           <div class="editorial-copy">
             <p>Empresas que crescem costumam acumular fornecedores: um banco para o crédito, um escritório para o tributário, uma contabilidade para os números. Cada um entrega a sua parte, e as partes nem sempre conversam.</p>
             <p>A Zenon não nasceu para vender crédito, imposto ou M&A. Nasceu para estar ao lado do empresário na hora de decidir, com a mesma seriedade com que ele decide sobre o próprio negócio.</p>
@@ -437,12 +449,17 @@
           </div>
         </div>
 
-        <div class="por-que-banner">
-          <p class="banner-sub">Tudo começa com uma conversa sobre o momento da sua empresa.</p>
-          <h2 class="banner-title">
-            Mais do que soluções,<br>
-            <span class="accent-word" style="color: var(--color-accent-gold); font-style: italic;">direção.</span>
-          </h2>
+        <!-- Chamada Final com Botão (Ajuste 12 - substitui frase repetida) -->
+        <div class="chamada-final-box">
+          <div class="chamada-final-inner">
+            <h3 class="chamada-final-text">
+              Tudo começa com uma conversa sobre o<br>
+              <span class="accent-italic">momento da sua empresa.</span>
+            </h3>
+            <div class="chamada-final-action">
+              <a href="#stage-contato" class="btn btn-solid-gold chamada-btn" data-service="diagnostico">Agendar diagnóstico</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
