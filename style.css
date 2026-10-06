@@ -706,10 +706,10 @@ body.mobile-nav-open {
 
 .hero-quote-card p {
   font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 16.5px;
+  line-height: 1.7;
   color: rgba(236, 232, 221, 0.95);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .hero-actions {
@@ -1364,6 +1364,21 @@ textarea.form-control {
   line-height: 1.55;
   color: #6D7B89;
   margin-bottom: 24px;
+}
+
+.form-terms a,
+.form-terms .form-terms-link {
+  color: var(--color-predominant);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.form-terms a:hover,
+.form-terms .form-terms-link:hover {
+  color: var(--color-warm-primary);
+  opacity: 0.85;
 }
 
 .form-btn-submit {
