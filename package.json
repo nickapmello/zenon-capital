@@ -8,6 +8,7 @@
     "start": "node execution/server.js"
   },
   "dependencies": {
-    "nodemailer": "^6.9.16"
+    "nodemailer": "^6.9.16",
+    "potrace": "^2.1.8"
   }
 }
