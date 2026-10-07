@@ -777,6 +777,8 @@ body.mobile-nav-open {
   width: 38px;
   height: 38px;
   flex-shrink: 0;
+  color: #6B3A2B;
+  fill: currentColor;
 }
 
 .highlight-quote {
@@ -828,10 +830,10 @@ body.mobile-nav-open {
 }
 
 .arch-symbol-icon {
-  width: 28px;
-  height: 28px;
-  stroke: var(--color-accent-gold);
-  fill: none;
+  width: 32px;
+  height: 32px;
+  color: #C79662;
+  fill: currentColor;
 }
 
 .arch-icon-caption {
@@ -922,9 +924,11 @@ body.mobile-nav-open {
 }
 
 .arch-card-icon {
-  width: 36px;
+  width: 44px;
   height: 48px;
   margin-top: 6px;
+  color: #172D44;
+  fill: currentColor;
 }
 
 .arch-card-text {
