@@ -17,10 +17,11 @@
   <div class="noise-overlay" aria-hidden="true"></div>
 
   <!-- 1. TOPBAR & NAVEGAÇÃO PERSISTENTE (FIXO) -->
-  <header class="site-header" id="siteHeader">
+  <header class="site-header header-theme-azul" id="siteHeader">
     <div class="site-container header-inner">
       <a href="#stage-hero" class="brand-logo" aria-label="Zenon Capital Início">
-        <img src="assets/logos/logo-header-completa-creme.png" alt="Zenon Capital — Arquitetura de Capital" class="brand-logo-img">
+        <img src="assets/logos/logo-header-completa-creme.png" alt="Zenon Capital — Arquitetura de Capital" class="brand-logo-img logo-theme-light">
+        <img src="assets/logos/logo-header-completa-azul.png" alt="Zenon Capital — Arquitetura de Capital" class="brand-logo-img logo-theme-dark">
       </a>
 
       <!-- Navegação Principal Desktop -->
@@ -58,7 +59,8 @@
       <aside class="mobile-drawer-panel" id="mobileDrawerPanel">
         <div class="mobile-drawer-header">
           <a href="#stage-hero" class="mobile-drawer-logo" aria-label="Zenon Capital Início">
-            <img src="assets/logos/logo-header-completa-creme.png" alt="Zenon Capital" class="mobile-drawer-logo-img">
+            <img src="assets/logos/logo-header-completa-creme.png" alt="Zenon Capital" class="mobile-drawer-logo-img logo-theme-light">
+            <img src="assets/logos/logo-header-completa-azul.png" alt="Zenon Capital" class="mobile-drawer-logo-img logo-theme-dark">
           </a>
           <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Fechar menu de navegação">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -118,7 +120,7 @@
 
   <main>
     <!-- 2. HERO / ABERTURA -->
-    <section class="stage-hero" id="stage-hero" aria-label="Abertura">
+    <section class="stage-hero" id="stage-hero" data-header-theme="azul" aria-label="Abertura">
       <!-- Camada fotográfica de fundo Desktop (Full-Bleed de ponta a ponta) -->
       <div class="hero-bg-layer" aria-hidden="true">
         <img src="assets/hero-sailboat-desktop.jpg" alt="" class="hero-bg-img" loading="eager">
@@ -148,7 +150,7 @@
     </section>
 
     <!-- 3. QUEM É A ZENON -->
-    <section class="stage-quem-e" id="stage-quem-e" aria-label="Quem é a Zenon">
+    <section class="stage-quem-e" id="stage-quem-e" data-header-theme="creme" aria-label="Quem é a Zenon">
       <div class="site-container">
         <div class="two-col-grid">
           <div>
@@ -174,7 +176,7 @@
     </section>
 
     <!-- 4. ARQUITETURA DE CAPITAL -->
-    <section class="stage-arquitetura" id="stage-arquitetura" aria-label="Arquitetura de Capital">
+    <section class="stage-arquitetura" id="stage-arquitetura" data-header-theme="azul" aria-label="Arquitetura de Capital">
       <div class="site-container">
         <div class="two-col-grid arch-main-grid">
           <div class="arch-col-left">
@@ -222,7 +224,7 @@
     </section>
 
     <!-- 5. PARA QUEM É (CARDS EM ARCO) -->
-    <section class="stage-para-quem-e" id="stage-para-quem-e" aria-label="Para quem é">
+    <section class="stage-para-quem-e" id="stage-para-quem-e" data-header-theme="creme" aria-label="Para quem é">
       <div class="site-container">
         <div class="two-col-grid">
           <div>
@@ -278,7 +280,7 @@
     </section>
 
     <!-- 6. FRENTES DE ATUAÇÃO -->
-    <section class="stage-frentes" id="stage-frentes" aria-label="Frentes de atuação">
+    <section class="stage-frentes" id="stage-frentes" data-header-theme="terracota" aria-label="Frentes de atuação">
       <div class="site-container">
         <div class="frentes-header">
           <div class="frentes-header-text">
@@ -333,7 +335,7 @@
     </section>
 
     <!-- 7. DIAGNÓSTICO ZENON -->
-    <section class="stage-diagnostico" id="stage-diagnostico" aria-label="Diagnóstico Zenon">
+    <section class="stage-diagnostico" id="stage-diagnostico" data-header-theme="azul" aria-label="Diagnóstico Zenon">
       <div class="site-container">
         <div class="diagnostico-grid">
           <div class="diagnostico-photo-col">
@@ -367,7 +369,7 @@
     </section>
 
     <!-- 8. FUSÕES E AQUISIÇÕES -->
-    <section class="stage-fusoes" id="stage-fusoes" aria-label="Fusões e Aquisições">
+    <section class="stage-fusoes" id="stage-fusoes" data-header-theme="cinza" aria-label="Fusões e Aquisições">
       <div class="site-container">
         <div class="two-col-grid">
           <div>
@@ -406,7 +408,7 @@
     </section>
 
     <!-- 9. NOSSO PRINCÍPIO -->
-    <section class="stage-principio" id="stage-principio" aria-label="Nosso Princípio">
+    <section class="stage-principio" id="stage-principio" data-header-theme="creme" aria-label="Nosso Princípio">
       <div class="site-container">
         <div class="principio-grid">
           <div class="principio-seal-col">
@@ -428,7 +430,7 @@
     </section>
 
     <!-- 10. POR QUE A ZENON -->
-    <section class="stage-por-que" id="stage-por-que" aria-label="Por que a Zenon">
+    <section class="stage-por-que" id="stage-por-que" data-header-theme="azul" aria-label="Por que a Zenon">
       <div class="site-container">
         <div>
           <span class="section-eyebrow gold">Por que a Zenon</span>
@@ -462,7 +464,7 @@
     </section>
 
     <!-- 11. CONTATO & FORMULÁRIO -->
-    <section class="stage-contato" id="stage-contato" aria-label="Contato">
+    <section class="stage-contato" id="stage-contato" data-header-theme="creme" aria-label="Contato">
       <div class="site-container">
         <div class="contato-grid">
           <div>
@@ -555,7 +557,7 @@
   </main>
 
   <!-- 12. RODAPÉ INSTITUCIONAL -->
-  <footer class="site-footer">
+  <footer class="site-footer" data-header-theme="azul">
     <div class="site-container">
       <div class="footer-top-grid">
         <div>
