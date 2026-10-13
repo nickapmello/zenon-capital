@@ -923,15 +923,20 @@ body.mobile-nav-open {
   overflow: hidden;
   pointer-events: none;
   z-index: 1;
+  background-color: var(--color-predominant-dark);
 }
 
 .hero-bg-img {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: right center;
+  object-position: right 60%;
+  transform: translate(7%, 52px) scale(0.78);
+  transform-origin: right center;
   display: block;
 }
 
@@ -942,18 +947,18 @@ body.mobile-nav-open {
   background:
     linear-gradient(
       90deg,
-      rgba(15, 31, 48, 0.92) 0%,
-      rgba(15, 31, 48, 0.82) 36%,
-      rgba(15, 31, 48, 0.45) 58%,
-      rgba(15, 31, 48, 0.12) 78%,
-      rgba(15, 31, 48, 0.22) 100%
+      #0F1F30 0%,
+      #0F1F30 42%,
+      rgba(15, 31, 48, 0.88) 56%,
+      rgba(15, 31, 48, 0.28) 72%,
+      transparent 90%
     ),
     linear-gradient(
       180deg,
-      rgba(15, 31, 48, 0.6) 0%,
+      rgba(15, 31, 48, 0.7) 0%,
       transparent 18%,
       transparent 82%,
-      rgba(15, 31, 48, 0.85) 100%
+      #0F1F30 100%
     );
 }
 
@@ -1967,6 +1972,25 @@ textarea.form-control {
     gap: 40px;
   }
 
+  /* Hero no Tablet: escala e respiro da fotografia sob header */
+  .hero-bg-img {
+    transform: translate(5%, 48px) scale(0.84);
+    object-position: 82% center;
+  }
+
+  .hero-bg-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        #0F1F30 0%,
+        #0F1F30 38%,
+        rgba(15, 31, 48, 0.90) 58%,
+        rgba(15, 31, 48, 0.35) 76%,
+        transparent 92%
+      ),
+      linear-gradient(180deg, rgba(15, 31, 48, 0.7) 0%, transparent 18%, transparent 82%, #0F1F30 100%);
+  }
+
   /* Para quem é no Tablet: 2 colunas */
   .stage-para-quem-e {
     padding: 44px 0 40px;
@@ -2091,11 +2115,24 @@ textarea.form-control {
     min-height: 100svh;
     padding-top: 100px;
     padding-bottom: 48px;
-    background-image:
-      linear-gradient(180deg, rgba(15, 31, 48, 0.82) 0%, rgba(15, 31, 48, 0.88) 55%, rgba(15, 31, 48, 0.98) 100%),
-      url('../assets/sailboat-clean.jpg');
-    background-position: 75% center;
-    background-size: cover;
+    background-color: var(--color-predominant-dark);
+    background-image: none;
+  }
+
+  .hero-bg-img {
+    transform: translateY(35px) scale(0.95);
+    object-position: 72% 25%;
+    transform-origin: center center;
+  }
+
+  .hero-bg-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(15, 31, 48, 0.78) 0%,
+        rgba(15, 31, 48, 0.85) 50%,
+        #0F1F30 100%
+      );
   }
 
   .hero-title {
