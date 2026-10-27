@@ -940,6 +940,21 @@ body.mobile-nav-open {
   display: block;
 }
 
+@media (min-width: 993px) {
+  .hero-bg-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    max-width: none;
+    object-fit: cover;
+    object-position: right center;
+    transform: none;
+  }
+}
+
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
